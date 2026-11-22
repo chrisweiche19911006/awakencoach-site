@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>生日配對計算器｜看你們合不合｜龜山覺醒教練</title>
+<meta name="description" content="輸入妳和他的生日，免費算出雙方生命靈數、星座和配對指數，看你們的吸引點、最容易卡住的地方，還有今天就能做的一個小動作。龜山覺醒教練 Chen 的感情小工具。">
+<link rel="canonical" href="https://awakencoach.tw/match/">
+<meta property="og:title" content="生日配對計算器｜看你們合不合">
+<meta property="og:description" content="輸入兩個人的生日，看生命靈數、星座和配對指數。免費使用。">
+<meta property="og:url" content="https://awakencoach.tw/match/">
+<meta property="og:type" content="website">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"生命靈數怎麼算？","acceptedAnswer":{"@type":"Answer","text":"把西元生日的年、月、日每一位數字加起來，加總超過 9 就再把位數相加，一直加到 1～9。例如 1991/10/06：1+9+9+1+1+0+0+6=27，2+7=9，生命靈數就是 9。過程中出現 11 或 22 叫做大師數，這裡會標示出來，再化簡成 2 或 4 來看。"}},
+{"@type":"Question","name":"配對指數準嗎？","acceptedAnswer":{"@type":"Answer","text":"配對指數是依照兩人生命靈數組合的固定對照表算出來的，同樣的生日每次算都一樣。它比較像一面鏡子，幫妳看見你們相處的傾向。兩個人合不合，最後還是看你們願不願意了解彼此、一起調整。"}},
+{"@type":"Question","name":"想看更深入怎麼辦？","acceptedAnswer":{"@type":"Answer","text":"生日只能看出大方向。如果妳想知道你們現在卡在哪、接下來可以怎麼做，可以加龜山覺醒教練的官方 LINE，點選單「我想看清這段感情」，用塔羅幫妳把想法和感受整理清楚。"}}
+]}
+</script>
+<style>
+:root{--bg:#f7f3ec;--ink:#1d2340;--soft:#5b6077;--gold:#b8893a;--card:#fff;--line:#e6dfd2;--gold-bg:rgba(184,137,58,.1)}
+@media (prefers-color-scheme:dark){:root{--bg:#121629;--ink:#f3eee4;--soft:#b7b9c8;--gold:#e0b45e;--card:#1b2140;--line:#2c3358;--gold-bg:rgba(224,180,94,.12)}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;line-height:1.75}
+.wrap{max-width:720px;margin:0 auto;padding:40px 16px 64px}
+.tag{color:var(--gold);font-weight:700;letter-spacing:.15em;font-size:14px;text-decoration:none}
+h1{font-size:32px;line-height:1.3;margin:8px 0 12px}
+.lead{color:var(--soft);font-size:17px;margin:0}
+h2{font-size:22px;margin:40px 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin-top:16px}
+.field{margin-bottom:14px}
+.field label{display:block;font-weight:700;font-size:16px;margin-bottom:6px}
+.dates{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:8px}
+select{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 8px;min-height:48px;appearance:auto}
+select:focus{outline:2px solid var(--gold);outline-offset:1px}
+.go{width:100%;font:inherit;font-size:17px;font-weight:700;color:#fff;background:var(--gold);border:0;border-radius:12px;padding:14px;min-height:52px;cursor:pointer;margin-top:4px}
+.go:active{opacity:.85}
+.err{color:#c0392b;font-size:15px;margin:8px 0 0;min-height:1em}
+@media (prefers-color-scheme:dark){.err{color:#ff8a7a}.go{color:#121629}}
+#result{display:none}
+.score{text-align:center;padding:24px 20px}
+.score .num{font-size:56px;font-weight:800;color:var(--gold);line-height:1.1}
+.score .num small{font-size:22px}
+.score .label{font-weight:700;font-size:18px;margin-top:6px}
+.bar{height:10px;background:var(--line);border-radius:99px;margin:14px auto 0;max-width:320px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--gold);border-radius:99px;width:0;transition:width .8s ease}
+.people{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.person{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
+.person .who{color:var(--soft);font-size:14px}
+.person .lp{font-size:36px;font-weight:800;color:var(--gold);line-height:1.2}
+.person .kw{font-weight:700;font-size:17px}
+.person .zd{font-size:14px;color:var(--soft);margin-top:2px}
+.person p{font-size:15px;margin:8px 0 0}
+.person .master{font-size:13px;color:var(--soft);background:var(--gold-bg);border-radius:8px;padding:6px 8px;margin-top:8px}
+.sec{border-left:3px solid var(--gold);padding:2px 0 2px 14px;margin:18px 0}
+.sec b{font-size:17px;display:block}
+.sec p{margin:4px 0 0;font-size:16px}
+.zodiac{background:var(--gold-bg);border-radius:12px;padding:12px 14px;font-size:16px;margin-top:16px}
+.cta{text-align:center}
+.cta p{font-size:17px;margin:0}
+.line{display:inline-block;background:#06c755;color:#fff;text-decoration:none;font-weight:700;padding:14px 22px;border-radius:12px;margin-top:14px}
+.links{margin-top:14px;font-size:15px}
+.links a{color:var(--gold);font-weight:700;text-decoration:none;margin:0 8px}
+.faq b{font-size:17px}
+.faq p{color:var(--soft);font-size:15px;margin:4px 0 16px}
+footer{margin-top:48px;color:var(--soft);font-size:14px;border-top:1px solid var(--line);padding-top:16px}
+@media (max-width:480px){h1{font-size:28px}.people{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <a class="tag" href="/">龜山覺醒教練</a>
+  <h1>生日配對計算器</h1>
+  <p class="lead">輸入妳和他的生日，看看你們的生命靈數、星座，還有相處起來的默契。免費使用，算完就當作認識彼此的小起點。</p>
+
+  <form class="card" id="f" onsubmit="return false">
+    <div class="field">
+      <label>妳的生日</label>
+      <div class="dates">
+        <select id="aY" aria-label="妳的出生年"></select>
+        <select id="aM" aria-label="妳的出生月"></select>
+        <select id="aD" aria-label="妳的出生日"></select>
+      </div>
+    </div>
+    <div class="field">
+      <label>他的生日</label>
+      <div class="dates">
+        <select id="bY" aria-label="他的出生年"></select>
+        <select id="bM" aria-label="他的出生月"></select>
+        <select id="bD" aria-label="他的出生日"></select>
+      </div>
+    </div>
+    <button class="go" id="goBtn" type="button">看我們合不合</button>
+    <p class="err" id="err"></p>
+  </form>
+
+  <section id="result" aria-live="polite">
+    <div class="card score">
+      <div class="who" style="color:var(--soft);font-size:14px">你們的配對指數</div>
+      <div class="num"><span id="sNum">0</span><small> 分</small></div>
+      <div class="label" id="sLabel"></div>
+      <div class="bar"><i id="sBar"></i></div>
+    </div>
+
+    <div class="people">
+      <div class="person" id="pA"></div>
+      <div class="person" id="pB"></div>
+    </div>
+
+    <div class="zodiac" id="zTip"></div>
+
+    <div class="card">
+      <div class="sec"><b>💞 你們的吸引點</b><p id="t1"></p></div>
+      <div class="sec"><b>🌧 最容易卡住的地方</b><p id="t2"></p></div>
+      <div class="sec"><b>🌱 今天就能做的小動作</b><p id="t3"></p></div>
+    </div>
+
+    <div class="card cta">
+      <p>想知道你們之間現在卡在哪？<br>加官方 LINE，點選單「我想看清這段感情」</p>
+      <a class="line" href="https://lin.ee/7TJ603O" target="_blank" rel="noopener">加官方 LINE</a>
+      <div class="links"><a href="/">回首頁</a>·<a href="/cards/">貓牌速查</a></div>
+    </div>
+  </section>
+
+  <h2>常見問題</h2>
+  <div class="faq">
+    <b>生命靈數怎麼算？</b>
+    <p>把西元生日的年、月、日每一位數字加起來，加總超過 9 就再把位數相加，一直加到 1～9。例如 1991/10/06：1+9+9+1+1+0+0+6=27，2+7=9，生命靈數就是 9。過程中出現 11 或 22 叫做大師數，這裡會標示出來，再化簡成 2 或 4 來看。</p>
+    <b>配對指數準嗎？</b>
+    <p>配對指數是依照兩人生命靈數組合的固定對照表算出來的，同樣的生日每次算都一樣。它比較像一面鏡子，幫妳看見你們相處的傾向。兩個人合不合，最後還是看你們願不願意了解彼此、一起調整。</p>
+    <b>想看更深入怎麼辦？</b>
+    <p>生日只能看出大方向。如果妳想知道你們現在卡在哪、接下來可以怎麼做，可以加官方 LINE，點選單「我想看清這段感情」，用塔羅幫妳把想法和感受整理清楚。</p>
+  </div>
+
+  <footer>覺醒教練 Chen｜工作地點：台北大安・新北三重・台南<br>IG／Threads：@chrisweiche1006</footer>
+</main>
+
+<script>
+(function(){
+  // 生命靈數 1～9 內容
+  var LP = {
+    1:{kw:"有主見的開路者",love:"喜歡自己做決定，遇到喜歡的人會主動靠近。嘴上不太說需要，其實很在意對方有沒有把自己放在心上。",give:"果斷和說到做到",stuck:"什麼都自己扛，不習慣開口要"},
+    2:{kw:"細膩的陪伴者",love:"很會察覺對方的情緒，常常先照顧別人的感受。一則沒回的訊息就可能想很多，需要被穩穩地回應。",give:"溫柔和細心",stuck:"把委屈先吞下去，等滿了才說"},
+    3:{kw:"有感染力的開心果",love:"很會在感情裡製造樂趣，聊起天來很少冷場。心情起伏比較明顯，被冷落的時候會很快感到失落。",give:"笑聲和好心情",stuck:"情緒一來，話就先說出口"},
+    4:{kw:"穩穩的守護者",love:"重視承諾和安全感，喜歡把日子過得有規律。表達愛的方式很實際，甜話說得少，但會默默把事情做好。",give:"可靠和穩定",stuck:"想照計畫走，遇到臨時變動會不安"},
+    5:{kw:"愛自由的冒險家",love:"喜歡新鮮感，跟 5 號在一起，生活很少無聊。需要自己的空間，被管太緊會想逃，給足信任反而會更想回來。",give:"行動力和新鮮感",stuck:"被追問的時候想躲開"},
+    6:{kw:"溫暖的照顧者",love:"很願意為喜歡的人付出，把對方的事當成自己的事。常常給得太多，忘了自己也需要被照顧。",give:"溫暖和照顧",stuck:"給了很多，卻說不出自己想要什麼"},
+    7:{kw:"安靜的思考者",love:"需要時間想清楚才會打開心，慢熟但很真。感情裡重視心靈上的懂，不喜歡被逼著表態。",give:"真誠和深度",stuck:"心裡想很多，嘴上說很少"},
+    8:{kw:"有目標的實踐者",love:"做事有魄力，會為兩個人的未來認真打算。愛一個人時想給對方好的生活，有時忙到忘了停下來陪伴。",give:"踏實和遠見",stuck:"忙起來就把陪伴往後放"},
+    9:{kw:"包容的理想家",love:"心很寬，願意理解別人的難處。對愛有很美的想像，現實跟想像落差大時，會自己默默失望。",give:"包容和理解",stuck:"失望了也不講，自己默默收著"}
+  };
+  // 今天的小動作（依妳的靈數）
+  var ACT = {
+    1:"今天找一件小事請他幫忙，讓他有機會照顧妳。",
+    2:"今天把一個小小的感受直接說出來，例如「你剛剛那樣回，我有點在意」，說完就好，給他時間消化。",
+    3:"今天心情上來的時候，先深呼吸十秒再回他訊息。",
+    4:"今天留一段沒有安排的空檔，讓他決定你們要做什麼。",
+    5:"今天主動跟他說一下妳在做什麼，不用等他問。",
+    6:"今天先幫自己做一件喜歡的事，再跟他分享妳很開心。",
+    7:"今天跟他說一句心裡的話，就算只是「我今天有點想你」也很好。",
+    8:"今天放下手機十五分鐘，專心聽他講一件他的事。",
+    9:"今天告訴他一件妳真正希望他做的小事，說具體一點，例如「下班可以打給我嗎」。"
+  };
+  // 靈數分組：A 思考獨立型 1/5/7、B 務實穩定型 2/4/8、C 感受創意型 3/6/9
+  var GROUP = {1:"A",5:"A",7:"A",2:"B",4:"B",8:"B",3:"C",6:"C",9:"C"};
+  var PAIR = {
+    SAME:{a:"你們是同一個數字，很多想法不用解釋就懂，像在照鏡子。",s:"太像的時候，連卡住的點也一樣，兩個人同時僵住就沒人先讓步。"},
+    AA:{a:"你們都重視自己的空間和想法，相處起來很輕鬆，不會黏到喘不過氣。",s:"兩個人都習慣自己消化，事情放著不講，距離會悄悄變遠。"},
+    BB:{a:"你們都想把日子過穩，對未來的想像很接近，一起規劃會很有安全感。",s:"兩個人都很務實，久了容易只聊生活瑣事，少了談心的時間。"},
+    CC:{a:"你們都是感受很豐富的人，聊起心事很容易聊到深夜。",s:"情緒上來的時候兩個人會一起放大，小事也容易變成大事。"},
+    AB:{a:"一個帶來新想法，一個把想法落地，你們很適合一起完成一件事。",s:"兩個人節奏不一樣，一個想先衝，一個想先準備好，容易覺得對方太快或太慢。"},
+    AC:{a:"一個有主見，一個有溫度，在一起會把對方的優點放大。",s:"一個習慣講道理，一個需要先被懂感受，吵架時常常各說各的。"},
+    BC:{a:"一個給安全感，一個給浪漫，加在一起就是很完整的照顧。",s:"一個重視實際，一個重視感覺，容易覺得對方沒看到自己的用心。"}
+  };
+  // 配對指數固定對照表（對稱，1～9 × 1～9）
+  var M = [
+    [80,90,88,78,86,82,84,79,85],
+    [90,82,84,89,76,92,80,86,87],
+    [88,84,83,75,91,90,79,77,89],
+    [78,89,75,84,73,88,85,91,80],
+    [86,76,91,73,81,79,87,82,84],
+    [82,92,90,88,79,85,74,83,93],
+    [84,80,79,85,87,74,83,78,88],
+    [79,86,77,91,82,83,78,80,81],
+    [85,87,89,80,84,93,88,81,86]
+  ];
+  function scoreLabel(s){
+    if(s>=88) return "默契很高的一對";
+    if(s>=80) return "互補型，越相處越合";
+    return "需要多一點練習的組合，練起來會很穩";
+  }
+  // 星座
+  function zodiac(m,d){
+    var md=m*100+d, list=[
+      [120,"摩羯座","土"],[219,"水瓶座","風"],[321,"雙魚座","水"],[420,"牡羊座","火"],
+      [521,"金牛座","土"],[622,"雙子座","風"],[723,"巨蟹座","水"],[823,"獅子座","火"],
+      [923,"處女座","土"],[1024,"天秤座","風"],[1123,"天蠍座","水"],[1222,"射手座","火"]
+    ];
+    for(var i=0;i<list.length;i++){ if(md<list[i][0]) return {name:list[i][1],el:list[i][2]}; }
+    return {name:"摩羯座",el:"土"};
+  }
+  var EL = {
+    "火火":"你們都很直接，熱起來很快，吵起來也快。有情緒的時候先各自緩一下再談，會好很多。",
+    "土土":"你們都重視實際，日子過得很穩。偶爾安排一點小驚喜，感情會更甜。",
+    "風風":"你們聊得來也很會玩，記得把聊天裡說好的事，真的找一天一起去做。",
+    "水水":"你們很能感受彼此的心情。心情不好的時候直接說出來，會比讓對方猜更好。",
+    "火土":"一個做事直接，一個喜歡慢慢來。先講好彼此的步調，就會很有默契。",
+    "火風":"你們在一起很有活力。給彼此自由的同時，也留一段專心陪伴的時間。",
+    "火水":"一個熱情，一個敏感。說話時多留意一下語氣，對方會更願意打開心。",
+    "土風":"一個習慣用做的表達愛，一個習慣用說的。多看見對方用自己的方式在愛妳。",
+    "土水":"一個給安穩，一個給溫柔。記得常常把謝謝說出口。",
+    "風水":"一個想得快，一個感受深。聊心事的時候，先聽完再給意見。"
+  };
+  var ELORDER = {"火":0,"土":1,"風":2,"水":3};
+  function elTip(a,b){
+    var k = ELORDER[a]<=ELORDER[b] ? a+b : b+a;
+    return EL[k];
+  }
+  // 生命靈數：年月日每位數字相加到 1～9，過程中出現 11、22 標示大師數
+  function lifePath(y,m,d){
+    var s=String(y)+(m<10?"0":"")+m+(d<10?"0":"")+d, sum=0, master=null;
+    for(var i=0;i<s.length;i++) sum+=+s[i];
+    var first=sum;
+    while(sum>9){
+      if(sum===11||sum===22) master=master||sum;
+      var t=0; String(sum).split("").forEach(function(c){t+=+c;}); sum=t;
+    }
+    return {n:sum, first:first, master:master, digits:s};
+  }
+
+  // 下拉選單
+  var thisYear = new Date().getFullYear();
+  function fill(prefix, defY){
+    var Y=document.getElementById(prefix+"Y"), Mo=document.getElementById(prefix+"M"), D=document.getElementById(prefix+"D");
+    Y.innerHTML='<option value="">年</option>';
+    for(var y=thisYear;y>=1940;y--) Y.innerHTML+='<option value="'+y+'">'+y+' 年</option>';
+    Mo.innerHTML='<option value="">月</option>';
+    for(var m=1;m<=12;m++) Mo.innerHTML+='<option value="'+m+'">'+m+' 月</option>';
+    function days(){
+      var cur=+D.value, y=+Y.value||2000, m=+Mo.value||1, max=new Date(y,m,0).getDate();
+      D.innerHTML='<option value="">日</option>';
+      for(var d=1;d<=max;d++) D.innerHTML+='<option value="'+d+'">'+d+' 日</option>';
+      if(cur&&cur<=max) D.value=cur;
+    }
+    Y.onchange=days; Mo.onchange=days; days();
+  }
+  fill("a"); fill("b");
+
+  function get(prefix){
+    var y=+document.getElementById(prefix+"Y").value, m=+document.getElementById(prefix+"M").value, d=+document.getElementById(prefix+"D").value;
+    if(!y||!m||!d) return null;
+    return {y:y,m:m,d:d};
+  }
+  function personHTML(who, b, lp, z){
+    var info=LP[lp.n];
+    var h='<div class="who">'+who+'｜'+b.y+'/'+b.m+'/'+b.d+'</div>'+
+      '<div class="lp">'+lp.n+' <span style="font-size:15px;font-weight:700;color:var(--soft)">號人</span></div>'+
+      '<div class="kw">'+info.kw+'</div>'+
+      '<div class="zd">'+z.name+'（'+z.el+'象）</div>'+
+      '<p>'+info.love+'</p>';
+    if(lp.master){
+      h+='<div class="master">加總過程出現 '+lp.master+'，這是大師數，這裡化簡成 '+lp.n+' 來看。</div>';
+    }
+    return h;
+  }
+
+  document.getElementById("goBtn").onclick=function(){
+    var err=document.getElementById("err"), A=get("a"), B=get("b");
+    if(!A||!B){ err.textContent = !A ? "妳的生日還沒選完喔" : "他的生日還沒選完喔"; return; }
+    err.textContent="";
+    var la=lifePath(A.y,A.m,A.d), lb=lifePath(B.y,B.m,B.d);
+    var za=zodiac(A.m,A.d), zb=zodiac(B.m,B.d);
+    var x=Math.min(la.n,lb.n), y=Math.max(la.n,lb.n), score=M[x-1][y-1];
+    var ga=GROUP[la.n], gb=GROUP[lb.n];
+    var key = la.n===lb.n ? "SAME" : [ga,gb].sort().join("");
+    var pa=LP[la.n], pb=LP[lb.n];
+
+    document.getElementById("pA").innerHTML=personHTML("妳",A,la,za);
+    document.getElementById("pB").innerHTML=personHTML("他",B,lb,zb);
+    document.getElementById("sNum").textContent=score;
+    document.getElementById("sLabel").textContent=scoreLabel(score);
+    document.getElementById("zTip").innerHTML="<b>✨ 星座小提醒</b>｜妳是"+za.name+"，他是"+zb.name+"。"+elTip(za.el,zb.el);
+    var t1 = la.n===lb.n
+      ? "你們都帶著"+pa.give+"，彼此身上很容易看到熟悉的自己。"+PAIR[key].a
+      : "妳的"+pa.give+"，剛好是他想靠近的地方；他的"+pb.give+"，也讓妳覺得被接住。"+PAIR[key].a;
+    var t2 = la.n===lb.n
+      ? "你們都比較容易"+pa.stuck+"。"+PAIR[key].s
+      : "妳比較容易"+pa.stuck+"；他比較容易"+pb.stuck+"。"+PAIR[key].s;
+    document.getElementById("t1").textContent=t1;
+    document.getElementById("t2").textContent=t2;
+    document.getElementById("t3").textContent=ACT[la.n];
+
+    var r=document.getElementById("result");
+    r.style.display="block";
+    var bar=document.getElementById("sBar"); bar.style.width="0";
+    setTimeout(function(){ bar.style.width=score+"%"; },50);
+    r.scrollIntoView({behavior:"smooth",block:"start"});
+  };
+})();
+</script>
+</body>
+</html>
