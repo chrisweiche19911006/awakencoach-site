@@ -1,0 +1,264 @@
+<!doctype html><html lang="zh-Hant-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="貓牌 54 張牌義速查｜龜山覺醒教練 Chen 免費整理，點一張就看感情面牌義。"><title>貓牌牌義速查</title></head><body>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+/* Layout: sticky search bar over a dense card-image grid grouped by deck section; tapping opens a bottom sheet (side panel on desktop) with the meaning + LINE CTA */
+:root{
+  --bg:#f6f2f4; --surface:#fffdfd; --ink:#2a1f2b; --muted:#76687a; --line:#e4d9e1;
+  --accent:#8a3f6b; --accent-ink:#ffffff; --gold:#a77a2c; --chip:#efe5ec;
+  --line-green:#06c755; --scrim:rgba(30,18,30,.45);
+  --display:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#171117; --surface:#221923; --ink:#f1e8ee; --muted:#ad9dab; --line:#3a2d3a;
+  --accent:#d98fb9; --accent-ink:#241322; --gold:#d6ad62; --chip:#2e222e;
+  --line-green:#2fd774; --scrim:rgba(0,0,0,.6); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#171117; --surface:#221923; --ink:#f1e8ee; --muted:#ad9dab; --line:#3a2d3a;
+  --accent:#d98fb9; --accent-ink:#241322; --gold:#d6ad62; --chip:#2e222e;
+  --line-green:#2fd774; --scrim:rgba(0,0,0,.6); color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.7;margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.intro{padding-block:28px 8px}
+.eyebrow{font-size:12px;letter-spacing:.18em;color:var(--gold);font-weight:700}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(28px,6vw,40px);line-height:1.25;margin:6px 0 8px;text-wrap:balance}
+.lede{color:var(--muted);margin:0;max-width:34em}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:12px 10px;border-bottom:1px solid var(--line)}
+.search{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:0 12px}
+.search:focus-within{border-color:var(--accent)}
+.search svg{flex:none;color:var(--muted)}
+#q{flex:1;min-width:0;border:0;background:transparent;color:var(--ink);font:inherit;padding:11px 0;outline:none}
+#clear{border:0;background:none;color:var(--muted);font:inherit;font-size:14px;cursor:pointer;padding:6px}
+.chips{display:flex;gap:8px;margin-top:10px;overflow-x:auto;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chips a{flex:none;text-decoration:none;color:var(--ink);background:var(--chip);border-radius:999px;padding:5px 14px;font-size:14px;white-space:nowrap}
+.chips a span{color:var(--muted);font-size:12px;margin-left:4px;font-variant-numeric:tabular-nums}
+.chips a:focus-visible,.card:focus-visible,.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+main{padding-block:8px 24px}
+section.group{padding-top:22px;scroll-margin-top:130px}
+.ghead{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
+.ghead h2{font-family:var(--display);font-size:22px;margin:0}
+.ghead .n{color:var(--muted);font-size:13px;font-variant-numeric:tabular-nums}
+.gnote{color:var(--muted);font-size:14px;margin:0 0 12px}
+h3.sub{font-size:13px;letter-spacing:.12em;color:var(--gold);margin:16px 0 8px;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:12px 10px}
+@media (min-width:700px){.grid{grid-template-columns:repeat(auto-fill,minmax(118px,1fr))}}
+.card{display:flex;flex-direction:column;align-items:center;gap:4px;border:0;background:none;padding:0;cursor:pointer;color:var(--ink);font:inherit}
+.card img{width:100%;aspect-ratio:12/21;object-fit:contain;transition:transform .2s ease}
+.card:hover img{transform:translateY(-3px)}
+.card b{font-family:var(--display);font-size:16px;font-weight:700;line-height:1.3}
+.card small{font-size:12px;color:var(--muted);line-height:1.3;text-align:center}
+.empty{color:var(--muted);padding:32px 0;text-align:center}
+.cta{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:12px}
+.cta p{margin:0;font-weight:500}
+.cta .row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--line-green);color:#fff;text-decoration:none;font-weight:700;border-radius:999px;padding:10px 20px;font-size:15px}
+.lid{font-size:13px;color:var(--muted)}
+.lid code{font-family:inherit;color:var(--ink);user-select:all}
+footer{padding-block:24px 40px;display:flex;flex-direction:column;gap:16px}
+footer .meta{font-size:13px;color:var(--muted)}
+/* sheet */
+.scrim{position:fixed;inset:0;background:var(--scrim);z-index:20}
+.sheet{position:fixed;z-index:21;left:0;right:0;bottom:0;max-height:88%;overflow-y:auto;background:var(--bg);border-radius:20px 20px 0 0;
+  padding:12px max(18px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) max(18px,env(safe-area-inset-left,0px));box-shadow:0 -8px 30px rgba(0,0,0,.18)}
+@media (min-width:820px){.sheet{left:auto;top:0;bottom:0;width:440px;max-height:none;border-radius:0;padding:28px 28px 32px}}
+.grab{width:40px;height:4px;border-radius:4px;background:var(--line);margin:0 auto 10px}
+@media (min-width:820px){.grab{display:none}}
+.close{position:absolute;top:10px;right:max(12px,env(safe-area-inset-right,0px));border:0;background:var(--chip);color:var(--ink);width:34px;height:34px;border-radius:50%;font-size:18px;cursor:pointer}
+.dtop{display:flex;gap:16px;align-items:flex-end}
+.dtop img{width:120px;flex:none;aspect-ratio:12/21;object-fit:contain}
+.dtop div{min-width:0}
+.tag{font-size:12px;letter-spacing:.12em;color:var(--gold);font-weight:700}
+.dname{font-family:var(--display);font-size:36px;line-height:1.2;margin:2px 0 6px}
+.kw{font-size:14px;color:var(--muted);margin:0}
+.facts{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 0;padding:0;list-style:none}
+.facts li{background:var(--chip);border-radius:8px;padding:2px 10px;font-size:13px}
+.facts li span{color:var(--muted);margin-right:4px}
+.meaning{margin:16px 0 18px;font-size:16.5px;line-height:1.85}
+.nav{display:flex;justify-content:space-between;margin-top:14px}
+.nav button{border:0;background:none;color:var(--accent);font:inherit;font-size:14px;cursor:pointer;padding:6px 0}
+@media (prefers-reduced-motion:reduce){.card img{transition:none}}
+</style>
+
+<header class="intro wrap">
+  <div class="eyebrow">覺醒教練 CHEN 的自建貓牌</div>
+  <h1>貓牌牌義速查</h1>
+  <p class="lede">54 張牌：天干、地支、紫微星曜、四化。點一張牌，看它在感情裡的核心意思。這副貓牌沒有正逆位，牌的方向不影響解讀。</p>
+</header>
+
+<div class="bar">
+  <div class="wrap">
+    <label class="search" for="q">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+      <input id="q" type="search" placeholder="打牌名，例如：地空、化忌、申" autocomplete="off">
+      <button id="clear" type="button" hidden>清除</button>
+    </label>
+    <nav class="chips" id="chips" aria-label="類別"></nav>
+  </div>
+</div>
+
+<main class="wrap" id="main"></main>
+
+<footer class="wrap">
+  <div class="cta">
+    <p>想知道這張牌在妳的感情裡代表什麼？傳「貓牌」到官方 LINE，我幫妳看完整解讀</p>
+    <div class="row">
+      <a class="btn" href="https://lin.ee/7TJ603O" target="_blank" rel="noopener">加 LINE 好友</a>
+      <span class="lid">官方 LINE ID <code>@954eyitk</code></span>
+    </div>
+  </div>
+  <div class="meta">牌義整理自覺醒教練 Chen 的貓牌解牌筆記 · IG chrisweiche1006<br>牌可以看趨勢與心理狀態，不是一定會發生的預言。</div>
+</footer>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="dname" hidden>
+  <div class="grab"></div>
+  <button class="close" id="close" type="button" aria-label="關閉">×</button>
+  <div class="dtop">
+    <img id="dimg" alt="">
+    <div>
+      <div class="tag" id="dtag"></div>
+      <div class="dname" id="dname"></div>
+      <p class="kw" id="dkw"></p>
+    </div>
+  </div>
+  <ul class="facts" id="dfacts"></ul>
+  <p class="meaning" id="dmean"></p>
+  <div class="cta">
+    <p>想知道這張牌在妳的感情裡代表什麼？傳「貓牌」到官方 LINE，我幫妳看完整解讀</p>
+    <div class="row">
+      <a class="btn" href="https://lin.ee/7TJ603O" target="_blank" rel="noopener">加 LINE 好友</a>
+      <span class="lid">ID <code>@954eyitk</code></span>
+    </div>
+  </div>
+  <div class="nav"><button id="prev" type="button">‹ 上一張</button><button id="next" type="button">下一張 ›</button></div>
+</aside>
+
+<script>
+const G=[
+ {id:"gan",name:"天干",note:"10 張，牌名都帶五行。"},
+ {id:"zhi",name:"地支",note:"12 張，牌名都是單字。月份、星座、生肖、五行是 Chris 自訂的固定對應，不是傳統八字月份。"},
+ {id:"star",name:"紫微星曜",note:"主星 14 張、輔星 14 張。"},
+ {id:"hua",name:"四化",note:"4 張。"}
+];
+// [name, group, sub, keywords, meaning, facts]
+const C=[
+["甲木","gan","","成長・重新開始・靠山","代表成長、重新開始、新的方向，也代表背後有支撐、有靠山。感情上是關係還有路可以走，有重新建立的可能。但不是立刻開花，需要慢慢培養，甲木不等於立刻復合。"],
+["乙木","gan","","細膩・猶豫・慢慢磨合","細膩、敏感、溫和，不喜歡衝突。感情上不是沒感覺，而是越在乎越容易猶豫、退縮，不敢太快、怕衝突、怕承擔。也代表柔性的付出、願意慢慢修補。落在解決方案時，是溫和溝通、給時間、不要硬碰硬。"],
+["丙火","gan","","情緒・熱度・衝突","情緒、熱度、表達、被點燃。感情上情緒升高，容易吵、容易說重話，彼此都想講自己。熱得快，也炸得快，但不一定是壞牌。"],
+["丁火","gan","","希望・回溫・重新點亮","希望、重新點亮、情緒慢慢回溫，比丙火溫和，像小火。感情上對方後面會慢慢好轉，比較願意把心裡真正的感受說出來。"],
+["戊土","gan","","穩定・等待・承擔","穩定、等待、承擔、考驗，像山一樣，不會因為一時情緒改方向。人格上很多事自己扛、不太示弱、重責任。問復合時當主牌，不是叫妳放棄，而是這段關係急不得，先沉澱、先穩住，不要追著要答案。"],
+["己土","gan","","固執・卡住・反覆消化","固執、堅持自己的想法、卡住、不容易退，在內部一直累積、反覆消化。感情上是把自己的立場抓很緊，例如「以前我受傷很多，所以現在你應該接受我」。"],
+["庚金","gan","","界線・果斷・獨立","果斷、界線、獨立、做決定，切斷不健康的控制。真正能改變現況的人是自己，適合解成立界線、停止依附。庚金不等於一定分手，只能說有切割、建立界線的能量。"],
+["辛金","gan","","克制・壓抑・自我保護","理性、克制、壓抑、自我保護。感情上明明有感覺卻壓住，提醒自己不要陷太深、保持距離。遇到分開或搬走，是態度變硬、開始劃清生活界線，不一定是完全不愛，可能是「我現在需要先劃清界線」。"],
+["壬水","gan","","拉開距離・給空間","流動、拉開距離、給空間、自己消化情緒。對方的狀態可能是情緒很亂、心思很多，目前重心不在感情。面對界線問題，不用一直威脅離開，而是平靜表達界線，該停止互動時停止，去過自己的生活。"],
+["癸水","gan","","冷掉・累到不想說","情緒收回來、安靜、累到不想再說，感情慢慢冷卻。不是爆炸，是冷掉；不是突然不喜歡，而是很多事不想再解釋、不想再哄。真正要注意的不是大吵，而是有一天妳不想管了。"],
+["子","zhi","","情緒期・還沒沉澱","在復合問題的現在位，代表雙方都還在情緒期，事情還沒沉澱。關係仍在變動，這時急著談復合，容易回到原本的問題。",[["月份","2月"],["星座","水瓶座"],["生肖","鼠"],["五行","水"]]],
+["丑","zhi","","慢慢耕耘・播種","牛，慢慢耕耘的狀態，像在播種，現在種下去的不會馬上看到結果。感情需要時間一點一點培養，急著收成反而會壞掉。",[["月份","1月"],["星座","摩羯座"],["生肖","牛"],["五行","土"]]],
+["寅","zhi","","重新啟動・往前","重新啟動、新的開始、往前、開始成長。感情上是開始推進、慢慢往前，但不適合逼，也不等於馬上在一起。",[["月份","12月"],["星座","射手座"],["生肖","虎"],["五行","木"]]],
+["卯","zhi","","評估・權衡・還沒押上","兔子，狡兔有三窟。還在各方評估、權衡利弊，想很多，心裡也有一點算計，還沒把自己全部押上來。",[["月份","11月"],["星座","天蠍座"],["生肖","兔"],["五行","木"]]],
+["辰","zhi","","僵局・拉扯・卡住","僵局、拉扯、雙方都不退，需要重新整理。感情裡常常不是沒感情，是卡住了。",[["月份","10月"],["星座","天秤座"],["生肖","龍"],["五行","土"]]],
+["巳","zhi","","敏感・觀察・心思細","敏感、觀察力強、心思細、知道自己要什麼，夜深人靜容易想很多。感情裡很會看回訊速度、語氣、態度和細節，但察覺不等於事情真的如自己所想。",[["月份","9月"],["星座","處女座"],["生肖","蛇"],["五行","火"]]],
+["午","zhi","","爆衝・主動・直球","馬，火的能量。很爆衝、很主動、很熱情，對對方很直球，感覺來得快。",[["月份","8月"],["星座","獅子座"],["生肖","馬"],["五行","火"]]],
+["未","zhi","","收成・整合・念舊","收成、整合、累積，也代表前一階段累積下來的問題。感情上念舊，會把人放在心裡。",[["月份","7月"],["星座","巨蟹座"],["生肖","羊"],["五行","土"]]],
+["申","zhi","","互動・往來・現實","互動、往來、行動、現實與資源。對方可能很在意工作發展、收入和現實條件，腦袋裡不是只有感情。問會不會在一起，是有機會，但不是坐著等，需要互動、往來、有人推進。",[["月份","6月"],["星座","雙子座"],["生肖","猴"],["五行","金"]]],
+["酉","zhi","","評估・衡量・觀察細節","判斷、衡量、觀察細節、敏銳、警戒。對方還在觀察值不值得信任，不是直接不信任，比較像「我還在評估」。",[["月份","5月"],["星座","金牛座"],["生肖","雞"],["五行","金"]]],
+["戌","zhi","","忠誠・責任・不說出口","忠誠、守承諾、責任、守原則，很多事自己扛。感情上他不是沒有心，而是比較把事情放心裡、不主動表達，像是「我有責任感，但我不一定會說」。不是強烈示愛的牌。",[["月份","4月"],["星座","牡羊座"],["生肖","狗"],["五行","土"]]],
+["亥","zhi","","情緒深・自己消化","情緒深、內在感受很多，習慣自己消化、內收、休息、沉澱，不一定會說出來。偏深層的情緒，不像火牌那樣外顯。",[["月份","3月"],["星座","雙魚座"],["生肖","豬"],["五行","水"]]],
+["紫微","star","主星","主導・掌控・自己決定","主導、掌控、權威、影響力、自己決定。感情上以自己為主，想掌握節奏，不喜歡被逼著交代。不一定沒感覺，而是希望自己決定要不要往前；也提醒妳，自己的主導權不要全部交出去。"],
+["天機","star","主星","想很多・計算・內耗","想很多、分析、計算、反覆判斷，容易內耗。感情上想得比做得多，會算有沒有未來、距離、現實，還有自己能不能承擔。",[["神明","孫悟空"]]],
+["太陽","star","主星","存在感・魅力・溫度","光、存在感、魅力、溫度、主動、被看見。感情上通常是正向的好感：對方覺得妳有存在感、有魅力，相處起來有溫度。"],
+["武曲","star","主星","往前衝・行動派","將軍想要往前的態勢，很果斷地往前衝。過程可能有點辛苦，但往前的意志是真的。感情上是想把關係往前推，用行動和實際付出表現，不太會說甜言蜜語。"],
+["天同","star","主星","舒服・陪伴・習慣","舒服、陪伴、習慣、依賴，慢慢長出來的感情。很適合從朋友、聊天、陪伴慢慢超出朋友。缺點是容易停在舒服區，有感情，也不一定有人主動定義關係。"],
+["廉貞","star","主星","吸引・曖昧・感情界線","感情課題、男女吸引、曖昧、試探、信任與感情界線。問跟前任有沒有斷乾淨，代表感情界線仍需要觀察，但一張廉貞，不能說一定出軌。"],
+["天府","star","主星","穩定・守住・包容","穩定、守住、有底、希望維持。感情上其實希望關係穩定，願意包容，不想輕易失去，想把關係守住。"],
+["太陰","star","主星","累積・細膩・女性能量","累積、細膩、內在、女性能量，也代表女性貴人。不是暴衝型，是越做越厚、慢慢累積。",[["神明","王母娘娘"]]],
+["貪狼","star","主星","桃花・慾望・誘惑","慾望、吸引、桃花、誘惑、享樂、想要更多。感情上是桃花、曖昧、慾望，但單張貪狼不能直接斷定有第三者。",[["神明","狐仙"]]],
+["巨門","star","主星","說話・表達・質疑","嘴巴、說話、表達、解釋、分享，也代表質疑和爭論。這張既是口才，也是別人會問妳憑什麼。"],
+["天相","star","主星","評估・對等・好好走","關係、配合、協調、平衡、對等、評估。感情上最常見的意思是：「我不是沒感覺，我是在看我們能不能好好走。」有好感、願意互動，會評估現實、觀察適不適合長期，也重視對等。"],
+["天梁","star","主星","信任・成熟溝通","信任，也可以延伸成成熟、保護、規則、公平、理性處理。感情上是建立信任、成熟溝通，不要只糾結誰對誰錯。"],
+["七殺","star","主星","高張力・吸引・防備","強烈、果斷、高張力、吸引、防備。感情上不是甜甜的戀愛，而是被吸引、很在意、想靠近，但同時怕受傷。張力很強，但不等於已經深愛。"],
+["破軍","star","主星","大變動・推倒重來","大變動、推倒重來、重建、高波動，成得快也敗得快。感情上是怕突然失去、關係不穩，一旦受不了，可能全部推翻。"],
+["左輔","star","輔星","支持・扶持・幫忙","實際幫忙、支持、合作、扶持，感情上是互相支持。也可能代表妳一直是幫他、陪他、替他處理事情的那個人；當一個人太習慣妳永遠都在，反而很難真正感受到失去。"],
+["右弼","star","輔星","陪伴・聯絡・軍師","協助、支持、陪伴、聯絡，像有人在旁邊給建議的軍師。落在感情的未來位，通常代表還會互動、還在彼此生活中，但不一定是戀愛。"],
+["文昌","star","輔星","反覆整理・自己消化","文字、思考、理性、反覆整理、回顧、自己消化。常見的狀態是一直在腦袋裡重新整理事情。"],
+["文曲","star","輔星","想很多・不說出口","思考、分析、感受、表達、內在整理。感情上會想很多，但未必說出口。"],
+["天魁","star","輔星","貴人・被看重・信任","貴人、重要人物、被看重、信任、有份量。感情上，對方在自己心中很重要，有尊重、信任、欣賞，有貴人感。貴人感和愛要分開看。"],
+["天鉞","star","輔星","緣分・機會・重要連結","貴人、緣分、協助、機會、重要連結。感情上有緣、有幫助、有發展可能，但不等於一定交往。"],
+["祿存","star","輔星","留下・累積・停在原地","資源、累積、守住、留下、收穫。感情上有東西留在關係裡，但有時是有好感卻停在原地，不一定代表積極推進。"],
+["天馬","star","輔星","移動・變動・轉換","移動、跨區域、變動、跑動、轉換，可以看成換地方、換平台、換據點的能量。"],
+["擎羊","star","輔星","防備・衝突・戒心","衝突、防備、刺、壓力、硬碰硬、戒心。感情上是怕受傷、有防備，容易起衝突，沒辦法完全卸下防備。"],
+["陀羅","star","輔星","反覆・繞圈・同一題","拖、卡住、反覆、繞圈、慢慢磨。感情上很適合解成：不是解決一次就好，而是同一個問題一直重複回來。"],
+["火星","star","輔星","突然・忽冷忽熱","突然、急躁、爆點、態度瞬間改變、不穩定。感情上是對方忽冷忽熱、突然改變態度，會把安全感打掉。"],
+["鈴星","star","輔星","敏感・一點就爆","敏感、刺激、情緒容易被點燃，一點小事就爆。一句話、一個反應，就可能引發很大的情緒。"],
+["地空","star","輔星","抽離・消失・神隱","空、抽離、消失、神隱、降低存在感、沒真正投入。對方突然消失可以看地空；在前任問題裡，可能代表舊情還有沒整理完的空缺，但不能直接說還在交往。"],
+["地劫","star","輔星","損耗・消耗・修正","損耗、風險、資源流失、消耗、修正。提醒不要一下投入所有資源；也可能是第一版需要修正，不是一定失敗。"],
+["化祿","hua","","好轉・修復・收穫","好轉、收穫、改善、回饋、修復。感情上有修復空間，但不要說一定復合。"],
+["化權","hua","","主導權・誰在讓","主導權、掌握方向。感情上是關係裡有一方握著方向，另一方願意順著走，可能是對方願意為妳讓步。也要看是不是一直同一個人在讓，關係平不平衡。"],
+["化科","hua","","釐清・說清楚","理性、整理、釐清、溝通、說清楚、重新理解。感情上不要急著問結果，先把真正的問題、需求和誤會整理清楚。"],
+["化忌","hua","","執念・心結・凶心","在這副牌裡，化忌就是凶心：執念、壓力、負面情緒、心結、委屈、內耗、過不去。不能每次都洗成「只是想很多」，有時它就是負面訊號。"]
+];
+const img=i=>`cards/c${String(i+1).padStart(2,"0")}.webp`;
+const $=s=>document.querySelector(s);
+const main=$("#main"), q=$("#q");
+let order=[], cur=-1, lastFocus=null;
+
+function render(term){
+  term=(term||"").trim();
+  main.innerHTML=""; order=[];
+  let total=0;
+  for(const g of G){
+    const items=C.map((c,i)=>({c,i})).filter(({c})=>c[1]===g.id && (!term || c[0].includes(term) || c[3].includes(term)));
+    if(!items.length) continue;
+    total+=items.length;
+    const sec=document.createElement("section"); sec.className="group"; sec.id=g.id;
+    sec.innerHTML=`<div class="ghead"><h2>${g.name}</h2><span class="n">${items.length} 張</span></div>${term?"":`<p class="gnote">${g.note}</p>`}`;
+    const subs=[...new Set(items.map(x=>x.c[2]))];
+    for(const s of subs){
+      if(s){const h=document.createElement("h3");h.className="sub";h.textContent=s;sec.appendChild(h);}
+      const grid=document.createElement("div"); grid.className="grid";
+      for(const {c,i} of items.filter(x=>x.c[2]===s)){
+        order.push(i);
+        const b=document.createElement("button"); b.className="card"; b.type="button";
+        b.innerHTML=`<img src="${img(i)}" alt="${c[0]} 牌面" loading="lazy" width="360" height="630"><b>${c[0]}</b><small>${c[3]}</small>`;
+        b.onclick=()=>openCard(i,b);
+        grid.appendChild(b);
+      }
+      sec.appendChild(grid);
+    }
+    main.appendChild(sec);
+  }
+  if(!total) main.innerHTML=`<p class="empty">找不到「${term.replace(/[<>&]/g,"")}」。試試單字牌名，例如「戌」「申」，或星曜名「七殺」。</p>`;
+  $("#clear").hidden=!term;
+}
+function chips(){
+  $("#chips").innerHTML=G.map(g=>`<a href="#${g.id}">${g.name}<span>${C.filter(c=>c[1]===g.id).length}</span></a>`).join("");
+  $("#chips").addEventListener("click",e=>{const a=e.target.closest("a");if(!a)return;e.preventDefault();
+    if(q.value){q.value="";render("");}
+    document.getElementById(a.getAttribute("href").slice(1))?.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion:reduce)").matches?"auto":"smooth"});});
+}
+function openCard(i,from){
+  if(from) lastFocus=from;
+  cur=i; const c=C[i], g=G.find(x=>x.id===c[1]);
+  $("#dimg").src=img(i); $("#dimg").alt=c[0]+" 牌面";
+  $("#dtag").textContent=g.name+(c[2]?"・"+c[2]:"");
+  $("#dname").textContent=c[0]; $("#dkw").textContent=c[3];
+  $("#dmean").textContent=c[4];
+  const f=c[5]||[]; $("#dfacts").innerHTML=f.map(([k,v])=>`<li><span>${k}</span>${v}</li>`).join(""); $("#dfacts").hidden=!f.length;
+  $("#scrim").hidden=false; $("#sheet").hidden=false; $("#sheet").scrollTop=0; $("#close").focus();
+}
+function closeCard(){ $("#scrim").hidden=true; $("#sheet").hidden=true; cur=-1; lastFocus?.focus(); }
+function step(d){ const k=order.indexOf(cur); if(k<0) return; openCard(order[(k+d+order.length)%order.length]); }
+$("#close").onclick=closeCard; $("#scrim").onclick=closeCard;
+$("#prev").onclick=()=>step(-1); $("#next").onclick=()=>step(1);
+document.addEventListener("keydown",e=>{ if($("#sheet").hidden) return;
+  if(e.key==="Escape") closeCard(); if(e.key==="ArrowLeft") step(-1); if(e.key==="ArrowRight") step(1); });
+q.addEventListener("input",()=>render(q.value));
+$("#clear").onclick=()=>{q.value="";render("");q.focus();};
+chips(); render("");
+</script>
+</body></html>
