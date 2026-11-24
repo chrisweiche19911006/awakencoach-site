@@ -13,7 +13,7 @@
   document.body.insertBefore(h,document.body.firstChild);
   h.querySelector('.sh-burger').onclick=function(){h.querySelector('.sh-menu').classList.toggle('open')};
   var f=document.createElement('footer');f.className='sf';
-  f.innerHTML='<div class="sf-in"><div><b>龜山塔羅師 Chen｜覺醒教練</b><br>塔羅情感教練・情感陪跑<br>龜山可約・台北・新北・台南有活動・線上全台灣</div>'+
+  f.innerHTML='<div class="sf-in"><div><b>龜山塔羅師 Chen｜覺醒教練</b><br>塔羅情感教練・情感陪跑<br>龜山可面談・雙北・線上全台灣</div>'+
    '<div><a href="/guishan-tarot/">龜山塔羅</a><a href="/reviews/">客人回饋</a><a href="/giver/">付出型測驗</a><a href="/match/">生日配對</a><br>'+
    '<a href="https://www.instagram.com/chrisweiche1006/" target="_blank" rel="noopener">Instagram</a><a href="https://www.threads.net/@chrisweiche1006" target="_blank" rel="noopener">Threads</a><a href="https://www.facebook.com/profile.php?id=100013899103094" target="_blank" rel="noopener">Facebook</a><a href="'+LINE+'" target="_blank" rel="noopener">官方 LINE</a></div></div>';
   document.body.appendChild(f);
