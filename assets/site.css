@@ -1,6 +1,6 @@
 /* awakencoach.tw 全站共用樣式（頁首、頁尾、浮動按鈕、配色） */
 :root{--navy:#1d2340;--navy2:#2b3463;--gold:#b8893a;--gold-h:#a07326;--gold-bg:#fbf3e3;--linegreen:#06c755;
---bg:#faf7f1;--ink:#1f2433;--soft:#5b6177;--card:#fff;--line:#ebe5d9;--shadow:0 8px 30px rgba(29,35,64,.08);color-scheme:light}
+--bg:#faf7f1;--ink:#1f2433;--soft:#5b6177;--card:#fff;--line:#ebe5d9;--shadow:0 8px 30px rgba(29,35,64,.08);color-scheme:light;--surface:#fff;--muted:#5b6177;--accent:#1d2340;--accent-ink:#fff;--chip:#f1ece2}
 body{background:var(--bg);color:var(--ink);font-family:"Noto Sans TC",system-ui,"PingFang TC","Microsoft JhengHei",sans-serif}
 .card{box-shadow:var(--shadow)}
 /* 頁首 */
