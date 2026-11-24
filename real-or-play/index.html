@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>他是真心還是玩玩？10 個行動自我檢視｜龜山塔羅師 Chen</title>
+<meta name="description" content="他是真心還是玩玩？與其猜他心裡在想什麼，不如看他實際做了什麼。10 個行動逐一勾選，整理出他做到的和還沒做到的，再回頭看妳心裡最在意的是哪一個。免費、不用填資料。">
+<link rel="canonical" href="https://awakencoach.tw/real-or-play/">
+<meta property="og:title" content="他是真心還是玩玩？10 個行動自我檢視">
+<meta property="og:description" content="不猜他的心，看他的行動，也看妳自己最在意什麼。">
+<meta property="og:url" content="https://awakencoach.tw/real-or-play/">
+<meta property="og:type" content="website">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"他是真心還是玩玩？10 個行動自我檢視","url":"https://awakencoach.tw/real-or-play/","applicationCategory":"LifestyleApplication","operatingSystem":"Any","inLanguage":"zh-Hant-TW","offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"},"author":{"@type":"Person","name":"龜山塔羅師 Chen","url":"https://awakencoach.tw/guishan-tarot/"}}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/tool.css">
+<script src="/assets/site.js" defer></script>
+<script src="/assets/tool.js"></script>
+<style>
+.item{padding:14px 0;border-bottom:1px solid var(--line)}.item:last-of-type{border-bottom:0}
+.item .t{font-weight:700;font-size:16px;margin-bottom:8px}
+.list{margin:6px 0 0;padding-left:1.2em}.list li{margin:4px 0;font-size:16px}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="eyebrow">免費小工具</div>
+  <h1>他是真心還是玩玩？</h1>
+  <p class="lead">他心裡在想什麼，誰都猜不準。但他做了什麼，妳看得到。照實勾選這 10 個行動，把他做到的、還沒做到的攤開來看。</p>
+
+  <div class="box" id="form"></div>
+  <div class="box" id="res"></div>
+
+  <h2>延伸閱讀</h2>
+  <div class="rel">
+    <a href="/read-no-reply/">⏳ 已讀不回多久算正常？30 秒檢測</a>
+    <a href="/speak-up/">💬 提要求練習器：把想說的話，說成他聽得進去的樣子</a>
+    <a href="/giver/">🧡 妳是哪一種付出型？10 題小測驗</a>
+  </div>
+  <p class="note">這份清單不會告訴妳他是不是真心，那個答案只有時間和妳自己知道。它只是幫妳把看到的事整理出來，讓妳不用再一個人反覆猜。</p>
+</main>
+<script>
+var Q=['他會主動約妳，不是都等妳開口','他記得妳說過的小事','他會讓身邊的朋友知道妳','他會聊到你們之後的事','妳需要他的時候，他會出現','他說要做的事，大多會做到','吵架後，他會回來把事情談開','他願意配合妳的步調，不催妳','他在妳面前跟在別人面前一樣','他的聯絡方式穩定，不會忽冷忽熱'];
+var f=document.getElementById('form'),h='';
+Q.forEach(function(q,i){h+='<div class="item"><div class="t">'+(i+1)+'. '+q+'</div><div class="opts" id="q'+i+'"><button class="opt" data-v="y">有做到</button><button class="opt" data-v="n">還沒做到</button><button class="opt" data-v="u">不確定</button></div></div>'});
+h+='<button class="go" id="go" disabled>整理給我看</button>';
+f.innerHTML=h;
+Q.forEach(function(q,i){pick(document.getElementById('q'+i))});
+window.onPick=function(){document.getElementById('go').disabled=!Q.every(function(q,i){return document.getElementById('q'+i).dataset.v})};
+document.getElementById('go').onclick=function(){
+  var y=[],n=[],u=[];
+  Q.forEach(function(q,i){var v=document.getElementById('q'+i).dataset.v;(v==='y'?y:v==='n'?n:u).push(q)});
+  function ul(a){return a.length?'<ul class="list">'+a.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul>':'<p>（沒有）</p>'}
+  var r='<p class="verdict">這是妳看到的他。</p>';
+  r+='<div class="sec"><b>他做到的（'+y.length+'）</b>'+ul(y)+'</div>';
+  r+='<div class="sec"><b>他還沒做到的（'+n.length+'）</b>'+ul(n)+'</div>';
+  if(u.length)r+='<div class="sec"><b>妳還不確定的（'+u.length+'）</b>'+ul(u)+'<p style="color:var(--soft);font-size:15px">不確定也是一種答案。可以多留意接下來幾次相處，不用急著下結論。</p></div>';
+  r+='<div class="sec"><b>看到這些，妳心裡最在意的是哪一個？</b><p>是他做到的那幾件讓妳安心，還是還沒做到的那一件一直放在心上？妳最在意的那一個，往往就是妳在這段關係裡最需要的東西。</p></div>';
+  r+='<div class="cta"><p>想聊聊妳最在意的那一個？<br>到官方 LINE 傳<span class="kw">真心</span>給我，我們一起把妳的想法和感受整理清楚</p><a href="https://lin.ee/7TJ603O" target="_blank" rel="noopener">加官方 LINE</a></div>';
+  r+='<div style="text-align:center"><button class="again" onclick="location.reload()">重新勾一次</button></div>';
+  var res=document.getElementById('res');res.innerHTML=r;res.style.display='block';res.scrollIntoView({behavior:'smooth'});
+};
+</script>
+</body>
+</html>
