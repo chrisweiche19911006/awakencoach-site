@@ -1,0 +1,37 @@
+/* awakencoach.tw 全站共用樣式（頁首、頁尾、浮動按鈕、配色） */
+:root{--navy:#1d2340;--navy2:#2b3463;--gold:#b8893a;--gold-h:#a07326;--gold-bg:#fbf3e3;--linegreen:#06c755;
+--bg:#faf7f1;--ink:#1f2433;--soft:#5b6177;--card:#fff;--line:#ebe5d9;--shadow:0 8px 30px rgba(29,35,64,.08);color-scheme:light}
+body{background:var(--bg);color:var(--ink);font-family:"Noto Sans TC",system-ui,"PingFang TC","Microsoft JhengHei",sans-serif}
+.card{box-shadow:var(--shadow)}
+/* 頁首 */
+.sh{position:sticky;top:0;z-index:40;background:rgba(250,247,241,.95);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.sh-in{max-width:1080px;margin:0 auto;padding:0 16px;display:flex;align-items:center;justify-content:space-between;height:60px}
+.sh-logo{font-weight:900;font-size:18px;text-decoration:none;color:var(--navy);line-height:1.2}
+.sh-logo small{display:block;font-size:11px;font-weight:700;color:var(--gold);letter-spacing:.14em}
+.sh-menu{display:flex;gap:20px;align-items:center;font-size:15px}
+.sh-menu a{text-decoration:none;color:var(--soft)}.sh-menu a:hover{color:var(--navy)}
+.sh-menu a.sh-line{background:var(--linegreen);color:#fff;border-radius:999px;padding:8px 16px;font-weight:700}
+.sh-burger{display:none;background:none;border:0;font-size:26px;cursor:pointer;color:var(--navy);padding:4px 8px}
+@media (max-width:900px){
+  .sh-menu{display:none;position:absolute;top:60px;left:0;right:0;background:var(--bg);flex-direction:column;align-items:stretch;padding:8px 16px 16px;border-bottom:1px solid var(--line);gap:0}
+  .sh-menu a{padding:12px 4px;border-bottom:1px solid var(--line)}
+  .sh-menu a.sh-line{text-align:center;margin-top:12px;border:0}
+  .sh-menu.open{display:flex}.sh-burger{display:block}
+}
+/* 頁尾 */
+.sf{background:#14182e;color:#9fa4bd;font-size:14px;padding:32px 0 96px;margin-top:48px;line-height:1.9}
+.sf-in{max-width:1080px;margin:0 auto;padding:0 16px;display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between}
+.sf b{color:#fff}.sf a{color:#d7daea;text-decoration:none;margin-right:14px;display:inline-block}
+/* 浮動按鈕 */
+.fab{position:fixed;right:14px;bottom:16px;z-index:50;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.fab-more{display:none;flex-direction:column;align-items:flex-end;gap:10px}
+.fab.open .fab-more{display:flex}
+.fab a,.fab button{display:flex;align-items:center;gap:8px;height:48px;min-width:48px;padding:0 16px;border-radius:999px;border:0;color:#fff;text-decoration:none;font:700 14px "Noto Sans TC",sans-serif;box-shadow:0 8px 20px rgba(0,0,0,.18);cursor:pointer;justify-content:center}
+.fab .f-line{background:var(--linegreen);height:54px;padding:0 20px;font-size:15px}
+.fab .f-toggle{background:var(--navy);width:48px;padding:0;font-size:22px}
+.fab .f-test{background:var(--gold)}
+.fab .f-ig{background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af)}
+.fab .f-th{background:#111}
+.fab .f-fb{background:#1877f2}
+.fab svg{width:20px;height:20px;fill:#fff;flex-shrink:0}
+@media (max-width:520px){.fab .f-line span{display:none}.fab .f-line{width:54px;padding:0}}
