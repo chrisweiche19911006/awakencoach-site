@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>已讀不回多久算正常？30 秒檢測｜龜山塔羅師 Chen</title>
+<meta name="description" content="他已讀不回多久算正常？選你們的關係階段、他平常的回覆速度、已經等了多久，30 秒告訴妳現在要不要擔心、可以做什麼、可以傳哪一句。免費、不用填資料。">
+<link rel="canonical" href="https://awakencoach.tw/read-no-reply/">
+<meta property="og:title" content="已讀不回多久算正常？30 秒檢測">
+<meta property="og:description" content="先看他平常的節奏，再決定要不要擔心。測完轉給也在等訊息的閨蜜。">
+<meta property="og:url" content="https://awakencoach.tw/read-no-reply/">
+<meta property="og:type" content="website">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"已讀不回多久算正常？檢測器","url":"https://awakencoach.tw/read-no-reply/","applicationCategory":"LifestyleApplication","operatingSystem":"Any","inLanguage":"zh-Hant-TW","offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"},"author":{"@type":"Person","name":"龜山塔羅師 Chen","url":"https://awakencoach.tw/guishan-tarot/"}}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/tool.css">
+<script src="/assets/site.js" defer></script>
+<script src="/assets/tool.js"></script>
+</head>
+<body>
+<main class="wrap">
+  <div class="eyebrow">免費小工具</div>
+  <h1>已讀不回多久算正常？</h1>
+  <p class="lead">先別急著傳第二則。選 4 題，30 秒看出現在要不要擔心、妳可以做什麼、可以傳哪一句。</p>
+
+  <div class="box" id="form">
+    <p class="q">1. 你們現在是什麼關係？</p>
+    <div class="opts" id="stage"><button class="opt" data-v="0">曖昧中</button><button class="opt" data-v="1">剛在一起（半年內）</button><button class="opt" data-v="2">穩定交往</button><button class="opt" data-v="3">剛吵完架</button></div>
+    <p class="q">2. 他平常多久會回妳？</p>
+    <div class="opts" id="usual"><button class="opt" data-v="0">幾分鐘內</button><button class="opt" data-v="1">一兩個小時</button><button class="opt" data-v="2">半天左右</button><button class="opt" data-v="3">常常隔天</button></div>
+    <p class="q">3. 這次已讀多久了？</p>
+    <div class="opts" id="wait"><button class="opt" data-v="0">一小時內</button><button class="opt" data-v="1">幾個小時</button><button class="opt" data-v="2">半天到一天</button><button class="opt" data-v="3">兩天以上</button></div>
+    <p class="q">4. 妳最後傳的是什麼？</p>
+    <div class="opts" id="last"><button class="opt" data-v="0">聊天、分享日常</button><button class="opt" data-v="1">問他問題、要他回答</button><button class="opt" data-v="2">講我的情緒、在抱怨</button><button class="opt" data-v="3">已經連傳好幾則</button></div>
+    <button class="go" id="go" disabled>看結果</button>
+  </div>
+
+  <div class="box" id="res"></div>
+
+  <h2>延伸閱讀</h2>
+  <div class="rel">
+    <a href="/qa/ti-yao-qiu/">📖 跟男朋友提要求會被嫌煩嗎？3 個讓他願意做的開口方法</a>
+    <a href="/speak-up/">💬 提要求練習器：把想說的話，說成他聽得進去的樣子</a>
+    <a href="/giver/">🧡 妳是哪一種付出型？10 題小測驗</a>
+  </div>
+  <p class="note">這個工具是幫妳先穩住自己、看清現在的狀況，不是判斷他愛不愛妳。每段關係的節奏都不一樣，最了解你們的還是妳自己。</p>
+</main>
+<script>
+var ids=['stage','usual','wait','last'];
+ids.forEach(function(i){pick(document.getElementById(i))});
+window.onPick=function(){document.getElementById('go').disabled=!ids.every(function(i){return document.getElementById(i).dataset.v!==undefined})};
+function v(i){return +document.getElementById(i).dataset.v}
+var SAY={
+ 0:['剛剛看到一個東西想到你，晚點有空再跟你說～','今天過得還好嗎？忙完再回我就好'],
+ 1:['你今天好像很忙，忙完記得吃飯喔','沒事，就是有點想你，忙完再聊'],
+ 2:['今天辛苦了，忙完再回我就好','晚上有空的話，想聽聽你今天過得怎樣'],
+ 3:['剛剛那樣講我也有點急，等你想聊的時候我們再好好說','我還是很在乎你，等你準備好再聊']
+};
+document.getElementById('go').onclick=function(){
+  var s=v('stage'),u=v('usual'),w=v('wait'),l=v('last'),d=w-u,h='';
+  var title,stay,todo;
+  if(d<=0){title='這次的速度，跟他平常差不多。';stay='他在自己平常的節奏裡，現在比較需要照顧的，是妳等訊息時的那份不安。';}
+  else if(d===1){title='比他平常慢一點，先不用急著下結論。';stay='慢一點可能是忙、累、還沒想好怎麼回。先把手機放下一小時，做一件會讓妳開心的事。';}
+  else{title='比他平常慢很多，妳會不安很正常。';stay='妳的感受是真的。但在問他之前，先讓自己穩下來，帶著情緒傳出去的訊息，常常會把對方推得更遠。';}
+  if(l===3){todo='妳已經連傳好幾則了，接下來先不要再傳。讓訊息停在這裡，給他一點空間，也給自己一點空間。';}
+  else if(l===2){todo='最後一則是情緒，他可能還不知道怎麼接。等妳平靜一點，再補一句輕鬆的話，讓他好接。';}
+  else if(l===1){todo='問題型的訊息，有些人需要想一下才回。可以把問題變簡單一點，或改天見面再問。';}
+  else{todo='分享日常本來就不一定需要馬上回。不用追問，繼續過妳自己的生活，有新的事再分享就好。';}
+  if(s===3&&d>=1)todo+=' 剛吵完架的已讀不回，很多時候是他還在消化情緒，先不要逼他表態。';
+  var says=SAY[s];
+  h+='<p class="verdict">'+title+'</p>';
+  h+='<div class="sec"><b>先穩住自己</b><p>'+stay+'</p></div>';
+  h+='<div class="sec"><b>現在可以做的一件事</b><p>'+todo+'</p></div>';
+  h+='<div class="sec"><b>真的想傳的話，可以這樣說</b>'+(l===3?'<p>這次建議先不傳。如果明天他還是沒動靜，再用下面這句：</p>':'')+sayHTML(says[0])+sayHTML(says[1])+'</div>';
+  h+='<div class="sec"><b>問問自己</b><p>他沒回的這段時間，妳最害怕的是什麼？這個害怕，是這段關係給妳的，還是以前就有了？</p></div>';
+  h+='<div class="cta"><p>想要 3 句不黏人、又讓他想回的訊息？<br>到官方 LINE 傳<span class="kw">已讀</span>給我</p><a href="https://lin.ee/7TJ603O" target="_blank" rel="noopener">加官方 LINE</a></div>';
+  h+='<div style="text-align:center"><button class="again" onclick="location.reload()">重新測一次</button></div>';
+  var r=document.getElementById('res');r.innerHTML=h;r.style.display='block';r.scrollIntoView({behavior:'smooth'});
+};
+</script>
+</body>
+</html>

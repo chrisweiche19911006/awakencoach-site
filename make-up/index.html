@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>吵架後第一句怎麼開口？和好開場白產生器｜龜山塔羅師 Chen</title>
+<meta name="description" content="吵完架不知道第一句怎麼說？選你們吵架的類型和現在的狀態，給妳 3 句可以直接複製的和好開場白，還有一句千萬別說的話。免費、不用填資料。">
+<link rel="canonical" href="https://awakencoach.tw/make-up/">
+<meta property="og:title" content="吵架後第一句怎麼開口？和好開場白產生器">
+<meta property="og:description" content="選吵架類型，拿 3 句可以直接傳的和好開場白。">
+<meta property="og:url" content="https://awakencoach.tw/make-up/">
+<meta property="og:type" content="website">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"吵架後第一句怎麼開口？和好開場白產生器","url":"https://awakencoach.tw/make-up/","applicationCategory":"LifestyleApplication","operatingSystem":"Any","inLanguage":"zh-Hant-TW","offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"},"author":{"@type":"Person","name":"龜山塔羅師 Chen","url":"https://awakencoach.tw/guishan-tarot/"}}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/tool.css">
+<script src="/assets/site.js" defer></script>
+<script src="/assets/tool.js"></script>
+</head>
+<body>
+<main class="wrap">
+  <div class="eyebrow">免費小工具</div>
+  <h1>吵架後第一句怎麼開口？</h1>
+  <p class="lead">想和好，可是一打開對話框就卡住？選 3 題，拿 3 句可以直接傳的開場白。</p>
+
+  <div class="box">
+    <p class="q">1. 你們吵的是哪一種？</p>
+    <div class="opts" id="type"><button class="opt" data-v="0">他覺得我管太多</button><button class="opt" data-v="1">我覺得被忽略</button><button class="opt" data-v="2">小事吵到翻舊帳</button><button class="opt" data-v="3">跟錢、家人、朋友有關</button></div>
+    <p class="q">2. 現在的狀態？</p>
+    <div class="opts" id="now"><button class="opt" data-v="0">剛吵完，還在氣頭上</button><button class="opt" data-v="1">冷戰一兩天了</button><button class="opt" data-v="2">冷戰好幾天，都沒人說話</button></div>
+    <p class="q">3. 妳想用什麼方式開口？</p>
+    <div class="opts" id="way"><button class="opt" data-v="0">傳訊息</button><button class="opt" data-v="1">當面說</button></div>
+    <button class="go" id="go" disabled>給我開場白</button>
+  </div>
+
+  <div class="box" id="res"></div>
+
+  <h2>延伸閱讀</h2>
+  <div class="rel">
+    <a href="/speak-up/">💬 提要求練習器：把想說的話，說成他聽得進去的樣子</a>
+    <a href="/qa/ti-yao-qiu/">📖 跟男朋友提要求會被嫌煩嗎？3 個讓他願意做的開口方法</a>
+    <a href="/read-no-reply/">⏳ 已讀不回多久算正常？30 秒檢測</a>
+  </div>
+  <p class="note">開場白是幫妳把門打開，不是替誰認錯。先讓兩個人回到可以好好說話的狀態，對錯之後再慢慢聊。</p>
+</main>
+<script>
+var ids=['type','now','way'];
+ids.forEach(function(i){pick(document.getElementById(i))});
+window.onPick=function(){document.getElementById('go').disabled=!ids.every(function(i){return document.getElementById(i).dataset.v!==undefined})};
+function v(i){return +document.getElementById(i).dataset.v}
+var L={
+ 0:{open:['我想了一下，我那樣一直問，其實是因為我心裡不安，不是不相信你。','我們可以好好聊一下嗎？我想知道你那時候的感受。','我不想跟你吵，我只是很在乎你，可能表達得不太好。'],
+    no:'「我還不是為你好」',ask:'我一直想確認他在做什麼，是想確認他，還是想讓自己安心？'},
+ 1:{open:['我那天其實不是想吵，是覺得有點孤單，想要你多陪我一下。','我想跟你說說我那天的心情，你願意聽我講嗎？','你最近是不是很累？我也想聽聽你的狀況。'],
+    no:'「你根本不在乎我」',ask:'我想被他怎麼照顧？這件事，我有好好跟他說過嗎？'},
+ 2:{open:['那天我們都有點激動，我想好好跟你講，不想再翻以前的事了。','我們先把那天那件事講清楚就好，好嗎？','我不想因為一件小事跟你冷下去，我想跟你和好。'],
+    no:'「你每次都這樣」',ask:'讓我一直翻舊帳的，是哪一件還沒放下的事？'},
+ 3:{open:['這件事對我們兩個都不簡單，我想跟你一起想辦法。','我那天講話比較衝，可是我真的想把這件事好好討論。','你那邊的想法是什麼？我想先聽你說完。'],
+    no:'「你就是比較在乎他們」',ask:'這件事裡，我真正需要的是什麼？是被支持，還是被選擇？'}
+};
+var NOW=['先給彼此半天到一天冷靜，再用第一句開口。氣頭上說的話，很容易變成下一場架。','一兩天剛好，氣都消得差不多了，現在開口最容易接住。','冷了好幾天，第一句就更要輕。不急著把事情講完，先讓他願意回妳就好。'];
+document.getElementById('go').onclick=function(){
+  var t=L[v('type')],n=v('now'),w=v('way'),h='';
+  h+='<p class="verdict">'+(n===0?'先冷靜一下，再開口。':'現在就可以開口了。')+'</p>';
+  h+='<div class="sec"><b>時間點</b><p>'+NOW[n]+'</p></div>';
+  h+='<div class="sec"><b>3 句開場白，挑一句最像妳的</b>'+t.open.map(sayHTML).join('')+'</div>';
+  h+='<div class="sec"><b>這句先不要說</b><p>'+t.no+'，就算妳心裡真的這樣想，第一句說出來，他只會想防守。</p></div>';
+  h+='<div class="sec"><b>'+(w===0?'傳訊息的小提醒':'當面說的小提醒')+'</b><p>'+(w===0?'一則就好，不要一次傳一大段。他回了，再慢慢接下去。':'找一個兩個人都不趕時間的時候，坐在旁邊比坐對面好，語氣放慢。')+'</p></div>';
+  h+='<div class="sec"><b>問問自己</b><p>'+t.ask+'</p></div>';
+  h+='<div class="cta"><p>想要更多和好開場白，或想聊聊你們卡在哪？<br>到官方 LINE 傳<span class="kw">和好</span>給我</p><a href="https://lin.ee/7TJ603O" target="_blank" rel="noopener">加官方 LINE</a></div>';
+  h+='<div style="text-align:center"><button class="again" onclick="location.reload()">重新選一次</button></div>';
+  var r=document.getElementById('res');r.innerHTML=h;r.style.display='block';r.scrollIntoView({behavior:'smooth'});
+};
+</script>
+</body>
+</html>
