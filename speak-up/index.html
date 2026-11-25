@@ -78,7 +78,7 @@ document.getElementById('go').onclick=function(){
   h+='<div class="sec"><b>為什麼這樣說比較好接</b><p>先講畫面，他會想像得到妳那時候的樣子；再講感受，他知道妳在意的是什麼；最後的要求很小，他做得到，也就比較願意做。</p></div>';
   if(no)h+='<div class="sec"><b>同一件事，這樣說容易變吵架</b><p>「'+no+'」聽起來是在追究，他會先想防守，妳真正想要的就被蓋過去了。</p></div>';
   h+='<div class="sec"><b>問問自己</b><p>這個要求，我以前是說出口了，還是一直等他自己發現？</p></div>';
-  h+='<div class="cta"><p>開口了還是卡住？想聊聊妳在這段關係裡為什麼這麼難開口？<br>到官方 LINE 傳<span class="kw">開口</span>給我</p><a href="https://lin.ee/7TJ603O" target="_blank" rel="noopener">加官方 LINE</a></div>';
+  h+='<div class="ac-next" data-tool="speak-up"></div>';h+='<div class="cta"><p>開口了還是卡住？想聊聊妳在這段關係裡為什麼這麼難開口？<br>到官方 LINE 傳<span class="kw">開口</span>給我</p><a href="https://lin.ee/7TJ603O" target="_blank" rel="noopener">加官方 LINE</a></div>';
   h+='<div style="text-align:center"><button class="again" onclick="location.reload()">再練一句</button></div>';
   var res=document.getElementById('res');res.innerHTML=h;res.style.display='block';res.scrollIntoView({behavior:'smooth'});
 };

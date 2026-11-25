@@ -104,8 +104,9 @@ footer{margin-top:48px;color:var(--soft);font-size:14px;border-top:1px solid var
       <p class="tip" id="shareTip"></p>
     </div>
 
+    <div class="ac-next" data-tool="giver" data-sis="1" data-nodone="1"></div>
     <div class="card cta">
-      <p>想知道他為什麼總讓妳付出更多？<br>加 LINE 我幫妳看</p>
+      <p>想知道他為什麼總讓妳付出更多？<br>到官方 LINE 傳「付出型」給我</p>
       <a class="line" href="https://lin.ee/7TJ603O" target="_blank" rel="noopener">加官方 LINE</a>
       <div class="links"><a href="/">回首頁</a>·<a href="/match/">生日配對</a>·<a href="/anniversary/">紀念日計算</a></div>
     </div>
@@ -250,7 +251,7 @@ footer{margin-top:48px;color:var(--soft);font-size:14px;border-top:1px solid var
       (cnt[second]>0 ? "。妳身上也有一點" + T[second].name + "的影子。" : "。");
     $("shareTip").textContent = "";
     $("quiz").style.display = "none";
-    var r = $("result"); r.style.display = "block";
+    var r = $("result"); r.style.display = "block"; window.acDone&&acDone("giver");
     r.dataset.type = top;
     r.scrollIntoView({behavior:"smooth",block:"start"});
   }

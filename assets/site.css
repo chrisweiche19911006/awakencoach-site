@@ -35,3 +35,11 @@ body{background:var(--bg);color:var(--ink);font-family:"Noto Sans TC",system-ui,
 .fab .f-fb{background:#1877f2}
 .fab svg{width:20px;height:20px;fill:#fff;flex-shrink:0}
 @media (max-width:520px){.fab .f-line span{display:none}.fab .f-line{width:54px;padding:0}}
+/* 結果頁下一步（私訊＋12/6 小課） */
+.ac-next{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0}
+@media (max-width:560px){.ac-next{grid-template-columns:1fr}}
+.acn{background:#fff;border:1px solid #e6dfd2;border-radius:16px;padding:16px;text-align:center;color:#1d2340}
+.acn p{margin:0 0 10px;font-size:15px;line-height:1.7}
+.acn a{display:inline-block;background:#1d2340;color:#fff;text-decoration:none;font-weight:700;padding:11px 20px;border-radius:999px}
+.acn:last-child a{background:#b8893a}
+.acn small{display:block;margin-top:8px;color:#8a6a2e;font-size:13px}

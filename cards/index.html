@@ -133,6 +133,7 @@ footer .meta{font-size:13px;color:var(--muted)}
   </div>
   <ul class="facts" id="dfacts"></ul>
   <p class="meaning" id="dmean"></p>
+  <div class="ac-next" data-tool="cards" data-sis="1" data-nodone="1"></div>
   <div class="cta">
     <p>想知道這張牌在妳的感情裡代表什麼？傳「貓牌」到官方 LINE，我幫妳看完整解讀</p>
     <div class="row">
@@ -254,7 +255,7 @@ function openCard(i,from){
   $("#dname").textContent=c[0]; $("#dkw").textContent=c[3];
   $("#dmean").textContent=c[4];
   const f=c[5]||[]; $("#dfacts").innerHTML=f.map(([k,v])=>`<li><span>${k}</span>${v}</li>`).join(""); $("#dfacts").hidden=!f.length;
-  $("#scrim").hidden=false; $("#sheet").hidden=false; $("#sheet").scrollTop=0; $("#close").focus();
+  window.acDone&&acDone("cards");$("#scrim").hidden=false; $("#sheet").hidden=false; $("#sheet").scrollTop=0; $("#close").focus();
 }
 function closeCard(){ $("#scrim").hidden=true; $("#sheet").hidden=true; cur=-1; lastFocus?.focus(); }
 function step(d){ const k=order.indexOf(cur); if(k<0) return; openCard(order[(k+d+order.length)%order.length]); }

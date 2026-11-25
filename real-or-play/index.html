@@ -58,7 +58,7 @@ document.getElementById('go').onclick=function(){
   r+='<div class="sec"><b>他還沒做到的（'+n.length+'）</b>'+ul(n)+'</div>';
   if(u.length)r+='<div class="sec"><b>妳還不確定的（'+u.length+'）</b>'+ul(u)+'<p style="color:var(--soft);font-size:15px">不確定也是一種答案。可以多留意接下來幾次相處，不用急著下結論。</p></div>';
   r+='<div class="sec"><b>看到這些，妳心裡最在意的是哪一個？</b><p>是他做到的那幾件讓妳安心，還是還沒做到的那一件一直放在心上？妳最在意的那一個，往往就是妳在這段關係裡最需要的東西。</p></div>';
-  r+='<div class="cta"><p>想聊聊妳最在意的那一個？<br>到官方 LINE 傳<span class="kw">真心</span>給我，我們一起把妳的想法和感受整理清楚</p><a href="https://lin.ee/7TJ603O" target="_blank" rel="noopener">加官方 LINE</a></div>';
+  r+='<div class="ac-next" data-tool="real-or-play"></div>';r+='<div class="cta"><p>想聊聊妳最在意的那一個？<br>到官方 LINE 傳<span class="kw">真心</span>給我，我們一起把妳的想法和感受整理清楚</p><a href="https://lin.ee/7TJ603O" target="_blank" rel="noopener">加官方 LINE</a></div>';
   r+='<div style="text-align:center"><button class="again" onclick="location.reload()">重新勾一次</button></div>';
   var res=document.getElementById('res');res.innerHTML=r;res.style.display='block';res.scrollIntoView({behavior:'smooth'});
 };

@@ -75,7 +75,7 @@ document.getElementById('go').onclick=function(){
   h+='<div class="sec"><b>現在可以做的一件事</b><p>'+todo+'</p></div>';
   h+='<div class="sec"><b>真的想傳的話，可以這樣說</b>'+(l===3?'<p>這次建議先不傳。如果明天他還是沒動靜，再用下面這句：</p>':'')+sayHTML(says[0])+sayHTML(says[1])+'</div>';
   h+='<div class="sec"><b>問問自己</b><p>他沒回的這段時間，妳最害怕的是什麼？這個害怕，是這段關係給妳的，還是以前就有了？</p></div>';
-  h+='<div class="cta"><p>想要 3 句不黏人、又讓他想回的訊息？<br>到官方 LINE 傳<span class="kw">已讀</span>給我</p><a href="https://lin.ee/7TJ603O" target="_blank" rel="noopener">加官方 LINE</a></div>';
+  h+='<div class="ac-next" data-tool="read-no-reply"></div>';h+='<div class="cta"><p>想要 3 句不黏人、又讓他想回的訊息？<br>到官方 LINE 傳<span class="kw">已讀</span>給我</p><a href="https://lin.ee/7TJ603O" target="_blank" rel="noopener">加官方 LINE</a></div>';
   h+='<div style="text-align:center"><button class="again" onclick="location.reload()">重新測一次</button></div>';
   var r=document.getElementById('res');r.innerHTML=h;r.style.display='block';r.scrollIntoView({behavior:'smooth'});
 };

@@ -69,7 +69,7 @@ document.getElementById('go').onclick=function(){
   h+='<div class="sec"><b>這句先不要說</b><p>'+t.no+'，就算妳心裡真的這樣想，第一句說出來，他只會想防守。</p></div>';
   h+='<div class="sec"><b>'+(w===0?'傳訊息的小提醒':'當面說的小提醒')+'</b><p>'+(w===0?'一則就好，不要一次傳一大段。他回了，再慢慢接下去。':'找一個兩個人都不趕時間的時候，坐在旁邊比坐對面好，語氣放慢。')+'</p></div>';
   h+='<div class="sec"><b>問問自己</b><p>'+t.ask+'</p></div>';
-  h+='<div class="cta"><p>想要更多和好開場白，或想聊聊你們卡在哪？<br>到官方 LINE 傳<span class="kw">和好</span>給我</p><a href="https://lin.ee/7TJ603O" target="_blank" rel="noopener">加官方 LINE</a></div>';
+  h+='<div class="ac-next" data-tool="make-up"></div>';h+='<div class="cta"><p>想要更多和好開場白，或想聊聊你們卡在哪？<br>到官方 LINE 傳<span class="kw">和好</span>給我</p><a href="https://lin.ee/7TJ603O" target="_blank" rel="noopener">加官方 LINE</a></div>';
   h+='<div style="text-align:center"><button class="again" onclick="location.reload()">重新選一次</button></div>';
   var r=document.getElementById('res');r.innerHTML=h;r.style.display='block';r.scrollIntoView({behavior:'smooth'});
 };

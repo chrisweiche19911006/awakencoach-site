@@ -118,6 +118,7 @@ footer{margin-top:48px;color:var(--soft);font-size:14px;border-top:1px solid var
       <div class="sec"><b>🌱 今天就能做的小動作</b><p id="t3"></p></div>
     </div>
 
+    <div class="ac-next" data-tool="match" data-sis="1" data-nodone="1"></div>
     <div class="card cta">
       <p>想知道你們之間現在卡在哪？<br>加官方 LINE，點選單「我想看清這段感情」</p>
       <a class="line" href="https://lin.ee/7TJ603O" target="_blank" rel="noopener">加官方 LINE</a>
@@ -292,7 +293,7 @@ footer{margin-top:48px;color:var(--soft);font-size:14px;border-top:1px solid var
     document.getElementById("t3").textContent=ACT[la.n];
 
     var r=document.getElementById("result");
-    r.style.display="block";
+    r.style.display="block";window.acDone&&acDone("match");
     var bar=document.getElementById("sBar"); bar.style.width="0";
     setTimeout(function(){ bar.style.width=score+"%"; },50);
     r.scrollIntoView({behavior:"smooth",block:"start"});

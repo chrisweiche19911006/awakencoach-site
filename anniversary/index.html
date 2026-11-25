@@ -99,6 +99,7 @@ footer{margin-top:48px;color:var(--soft);font-size:14px;border-top:1px solid var
 
     <div class="hint" id="hint"></div>
 
+    <div class="ac-next" data-tool="anniversary" data-nodone="1"></div>
     <div class="card cta">
       <p>在一起越久，反而越不知道怎麼靠近？<br>加 LINE，我幫妳看你們卡在哪</p>
       <a class="line" href="https://lin.ee/7TJ603O" target="_blank" rel="noopener">加官方 LINE</a>
@@ -175,7 +176,7 @@ footer{margin-top:48px;color:var(--soft);font-size:14px;border-top:1px solid var
     $("hint").innerHTML = "<b>💡 小提醒</b>｜紀念日不一定要很大的驚喜。那天約他吃一頓飯，聊聊你們剛在一起時最記得的一件事，就很夠了。";
     $("result").dataset.text = "我們已經在一起 " + days + " 天了！下一個紀念日是「" + next.name + "」，在 " + fmt(next.t) + "。你也來算算看：";
     $("shareTip").textContent = "";
-    var r = $("result"); r.style.display = "block";
+    var r = $("result"); r.style.display = "block"; window.acDone&&acDone("anniversary");
     if(!auto) r.scrollIntoView({behavior:"smooth",block:"start"});
   }
   $("goBtn").onclick = function(){ calc(false); };
