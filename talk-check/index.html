@@ -1,0 +1,859 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>對話覺察室｜把 LINE 對話丟進來，看你們的感情數字｜龜山塔羅師 Chen</title>
+<meta name="description" content="上傳妳跟他的 LINE 或 IG 對話，免費看誰先開口、誰回得慢、他對妳的溫度，再抽一張牌，看妳走到十步覺察的第幾步。對話只在妳的手機分析，不會上傳。">
+<link rel="canonical" href="https://awakencoach.tw/talk-check/">
+<meta property="og:title" content="對話覺察室：把 LINE 對話丟進來，看你們的感情數字">
+<meta property="og:url" content="https://awakencoach.tw/talk-check/">
+<link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/site.js" defer></script>
+</head>
+<body>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+/* Layout: one reading column like a letter from Chen; the ten-step path is the spine of the page */
+:root{
+  --bg:#f7f3f8; --surface:#ffffff; --ink:#2a2230; --muted:#6f6478; --line:#e6dcea;
+  --plum:#6b3d7a; --plum-soft:#efe3f3; --gold:#a8792a; --gold-soft:#f6ecd8; --on-plum:#ffffff;
+  --display:"Noto Serif TC","Songti TC",serif; --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#1b1620; --surface:#251e2b; --ink:#f1eaf4; --muted:#b3a6bb; --line:#3a3042;
+  --plum:#c99bd8; --plum-soft:#352a3d; --gold:#e0b86a; --gold-soft:#3a3122; --on-plum:#1b1620; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#1b1620; --surface:#251e2b; --ink:#f1eaf4; --muted:#b3a6bb; --line:#3a3042;
+  --plum:#c99bd8; --plum-soft:#352a3d; --gold:#e0b86a; --gold-soft:#3a3122; --on-plum:#1b1620; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.75;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:32px 64px}
+.wrap{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.35}
+h1{font-size:clamp(28px,6vw,38px)} h2{font-size:22px} h3{font-size:18px}
+p{margin:0}
+.muted{color:var(--muted);font-size:14px}
+.eyebrow{font-size:13px;letter-spacing:.12em;color:var(--gold);font-weight:700}
+.demo-tag{display:inline-block;font-size:12px;padding:2px 10px;border-radius:99px;background:var(--gold-soft);color:var(--gold);font-weight:700;width:max-content}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:14px}
+.wrap button{font:inherit;cursor:pointer;border-radius:10px;border:1px solid var(--plum);padding:10px 16px;background:transparent;color:var(--plum);font-weight:500}
+.wrap button.primary{background:var(--plum);color:var(--on-plum)}
+.wrap button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.wrap button:disabled{opacity:.5;cursor:not-allowed}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+label{font-size:14px;color:var(--muted)}
+select,input[type=text]{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+.drop{border:1.5px dashed var(--line);border-radius:12px;padding:18px;text-align:center;color:var(--muted);font-size:14px}
+.drop.on{border-color:var(--plum);background:var(--plum-soft)}
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.tile{background:var(--plum-soft);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.tile b{font-family:var(--display);font-size:26px;font-variant-numeric:tabular-nums;color:var(--plum)}
+.tile span{font-size:13px;color:var(--muted)}
+.obs{display:flex;flex-direction:column;gap:12px;margin:0;padding:0;list-style:none}
+.obs li{padding-left:14px;border-left:2px solid var(--gold)}
+.card-area{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.tarot{width:120px;aspect-ratio:2/3;max-width:100%;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;cursor:pointer;
+  background:linear-gradient(160deg,#6b3d7a,#3a1f45);color:#f6e7c8;font-family:var(--display);box-shadow:0 6px 18px rgba(60,20,70,.25);flex:none}
+.tarot .n{font-size:30px;font-weight:700}
+.tarot .k{font-size:12px;letter-spacing:.15em;opacity:.8}
+.tarot.back .n{font-size:20px}
+.card-text{flex:1;min-width:200px;display:flex;flex-direction:column;gap:8px}
+.here{background:var(--plum);color:var(--on-plum);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:10px}
+.here .big{font-family:var(--display);font-size:clamp(30px,8vw,44px);font-weight:700;line-height:1.2}
+.here .q{font-family:var(--display);font-size:18px}
+.path{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0}
+.step{display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:12px;align-items:start;padding:14px 0;border-bottom:1px solid var(--line)}
+.step:last-child{border-bottom:0}
+.stage{font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--gold);padding-top:16px}
+.dot{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-variant-numeric:tabular-nums;border:1.5px solid var(--line);color:var(--muted);font-size:14px}
+.step.done .dot{background:var(--plum-soft);border-color:var(--plum-soft);color:var(--plum)}
+.step.now .dot{background:var(--plum);border-color:var(--plum);color:var(--on-plum)}
+.step.open .dot{background:var(--gold-soft);border-color:var(--gold);color:var(--gold)}
+.step h3{font-size:16px}
+.step .body{display:flex;flex-direction:column;gap:4px;min-width:0}
+.step .detail{font-size:14px;color:var(--muted)}
+.step .homework{font-size:14px;background:var(--gold-soft);border-radius:8px;padding:8px 10px;margin-top:4px}
+.chip{font-size:12px;padding:2px 8px;border-radius:99px;white-space:nowrap;font-weight:700}
+.chip.now{background:var(--plum);color:var(--on-plum)}
+.chip.done{background:var(--plum-soft);color:var(--plum)}
+.step button{padding:6px 12px;font-size:14px;white-space:nowrap}
+.price{font-variant-numeric:tabular-nums;color:var(--gold);font-weight:700}
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.plan{border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:6px}
+.plan.best{border-color:var(--gold);background:var(--gold-soft)}
+.wallet{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.wallet b{font-family:var(--display);font-size:24px;color:var(--plum);font-variant-numeric:tabular-nums}
+.foot{font-size:13px;color:var(--muted);text-align:center}
+.toast{font-size:14px;color:var(--gold);min-height:1.5em}
+.card-more{display:flex;flex-direction:column;gap:12px}
+.card-more:empty{display:none}
+.cm{display:flex;flex-direction:column;gap:2px}
+.send{border:1px solid var(--gold);background:var(--gold-soft);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.verdict{background:var(--plum);color:var(--on-plum);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:6px}
+.v-type{font-family:var(--display);font-size:clamp(24px,6vw,30px);font-weight:700}
+.gauges{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.gauge{background:var(--plum-soft);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.g-label{font-size:13px;color:var(--muted)}
+.gauge b{font-family:var(--display);font-size:30px;color:var(--plum);font-variant-numeric:tabular-nums}
+.g-bar{height:8px;border-radius:99px;background:var(--line);overflow:hidden}
+.g-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--plum));border-radius:99px}
+.g-note{font-size:14px}
+.g-how{font-size:12px;color:var(--muted);line-height:1.6}
+.split{display:grid;grid-template-columns:64px minmax(0,1fr);grid-template-areas:"l b" "l v";column-gap:10px;align-items:center;margin-bottom:8px}
+.s-l{grid-area:l;font-size:14px;color:var(--muted)}
+.s-bar{grid-area:b;height:10px;border-radius:99px;background:var(--gold-soft);overflow:hidden}
+.s-bar i{display:block;height:100%;background:var(--plum)}
+.s-v{grid-area:v;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.p-bars{grid-area:b;display:flex;flex-direction:column;gap:3px}
+.p-bars i{display:block;height:7px;border-radius:99px;min-width:2px}
+.me{background:var(--plum)} .ot{background:var(--gold)}
+.trend{display:flex;flex-direction:column;gap:10px}
+.t-row{display:grid;grid-template-columns:44px minmax(0,1fr) 92px;gap:10px;align-items:center}
+.t-m{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+.t-bars{display:flex;flex-direction:column;gap:3px;min-width:0}
+.t-b{height:18px;border-radius:6px;min-width:44px;display:flex;align-items:center;padding-left:6px;box-sizing:border-box;max-width:100%}
+.t-b span{font-size:12px;color:var(--on-plum);white-space:nowrap}
+.t-b.ot span{color:#2a2230}
+.t-r{font-size:13px;color:var(--muted);text-align:right;font-variant-numeric:tabular-nums}
+.conf{font-size:14px;opacity:.9}
+.story{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0}
+.story li{position:relative;padding:0 0 18px 26px;border-left:2px solid var(--line);margin-left:7px}
+.story li:last-child{border-left-color:transparent;padding-bottom:0}
+.story li::before{content:"";position:absolute;left:-8px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--surface);border:2px solid var(--plum)}
+.story li.turn::before{background:var(--gold);border-color:var(--gold)}
+.story li.prob::before{background:var(--plum)}
+.st-h{font-family:var(--display);font-weight:700;font-size:17px}
+.st-d{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.quote{margin:8px 0;padding:10px 12px;border-radius:10px;background:var(--plum-soft);font-size:15px;display:flex;flex-direction:column;gap:4px}
+.key{font-family:var(--display);font-size:18px;font-weight:700;line-height:1.6}
+.quote .gap{font-size:12px;color:var(--gold);font-weight:700}
+.blind{border:1px dashed var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:6px;font-size:15px}
+.hook{border:1px solid var(--gold);background:var(--gold-soft);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:6px}
+</style>
+
+<div class="wrap">
+  <header style="display:flex;flex-direction:column;gap:10px">
+    <p class="eyebrow">CHEN 十步覺察</p>
+    <h1>妳的對話覺察報告</h1>
+    <p>把妳跟他的 LINE 對話丟進來，免費看你們的對話數字、抽一張牌，看妳現在走到十步裡的第幾步。</p>
+    <p class="muted">對話只在妳自己的手機或電腦上分析，不會上傳、不會被別人看到。</p>
+  </header>
+
+  <section class="panel" aria-labelledby="up-h">
+    <h2 id="up-h">上傳對話</h2>
+    <p class="muted"><b>LINE</b>：聊天室 → 右上角選單 → 設定 → 傳送聊天記錄，存成 .txt 後上傳。</p>
+    <p class="muted"><b>IG</b>：IG 設定 → 帳號管理中心 → 你的資訊和權限 → 下載你的資訊 → 只勾「訊息」、格式選 JSON。檔案好了會通知妳（幾分鐘到幾小時），解壓縮後找到 messages → inbox → 對方名字的資料夾（新版會放在 your_instagram_activity 裡面），上傳裡面的 message_1.json（有 message_2、3 可以一起選）。</p>
+    <p class="muted">至少要有 100 則訊息，分析才準。</p>
+    <div class="drop" id="drop">把 .txt 拖到這裡，或
+      <label for="file" style="color:var(--plum);cursor:pointer;text-decoration:underline">選擇檔案</label>
+      <input type="file" id="file" accept=".txt,.json,text/plain,application/json" multiple hidden>
+    </div>
+    <p class="muted" id="loaded">還沒上傳對話</p>
+    <div class="row">
+      <label for="sex">我是</label><select id="sex"><option>女生</option><option>男生</option></select>
+      <label for="me">妳是誰？</label><select id="me"></select>
+      <label for="meet">多常見面</label>
+      <select id="meet"><option>幾乎沒見過面</option><option>一個月見幾次</option><option>每週見幾次</option><option>幾乎每天見面</option><option>住在一起</option></select>
+      <label for="rel">你們是</label>
+      <select id="rel"><option>曖昧中</option><option>交往中</option><option>剛分開</option><option>已婚</option></select>
+    </div>
+  </section>
+
+  <section class="panel after" aria-labelledby="rep-h" hidden>
+    <p class="eyebrow">免費・第一部分</p>
+    <h2 id="rep-h">妳們的對話告訴我的事</h2>
+    <div class="verdict" id="verdict"></div>
+    <h3>你們的故事線</h3>
+    <ol class="story" id="story"></ol>
+    <h3>兩個數字看懂你們</h3>
+    <p class="muted">這兩個數字是從你們整段對話算出來的，不是牌、也不是算命。</p>
+    <div class="gauges">
+      <div class="gauge"><span class="g-label">他對妳的溫度（0～100 度）</span><b id="tempNum"></b><div class="g-bar"><i id="tempBar"></i></div><span class="g-note" id="tempNote"></span><span class="g-how">怎麼算：他主動找妳的次數、回妳的速度、回幾個字、有沒有說想妳、有沒有約妳</span></div>
+      <div class="gauge"><span class="g-label">這段關係，妳出了幾成力</span><b id="effNum"></b><div class="g-bar"><i id="effBar"></i></div><span class="g-note" id="effNote"></span><span class="g-how">怎麼算：誰先開口、誰傳得多、誰打的字多、誰約對方。50% 代表兩個人一樣用力</span></div>
+    </div>
+    <h3>對話的份量</h3>
+    <div id="share"></div>
+    <div class="tiles" id="tiles"></div>
+    <h3>走勢：這幾個月怎麼變的</h3>
+    <div class="trend" id="trend"></div>
+    <p class="muted" id="trendNote"></p>
+    <h3>你們都在什麼時候聊</h3>
+    <div id="periods"></div>
+    <h3>我看到的</h3>
+    <ul class="obs" id="obs"></ul>
+    <div class="blind" id="blind"></div>
+    <div class="hook" id="hook"></div>
+  </section>
+
+  <section class="panel after" aria-labelledby="card-h" hidden>
+    <p class="eyebrow">免費・第二部分</p>
+    <h2 id="card-h">帶著這段關係，抽一張牌</h2>
+    <div class="card-area">
+      <div class="tarot back" id="tarot" role="button" tabindex="0" aria-label="抽牌"><span class="k">CHEN</span><span class="n">點我抽牌</span></div>
+      <div class="card-text" id="cardText"><p>深呼吸，想著妳跟他現在的狀態，再點左邊的牌。</p></div>
+    </div>
+    <div id="cardMore" class="card-more"></div>
+  </section>
+
+  <section class="here after" aria-labelledby="here-h" hidden>
+    <p class="eyebrow" style="color:inherit;opacity:.85">免費・第三部分</p>
+    <h2 id="here-h" class="big"></h2>
+    <p id="hereWhy"></p>
+    <p class="q" id="hereQ"></p>
+  </section>
+
+  <section class="panel after" aria-labelledby="path-h" hidden>
+    <h2 id="path-h">十步覺察地圖</h2>
+    <p class="muted">妳現在這一步的功課是送的。想往下走，一步一步解鎖，走到第十步。</p>
+    <ol class="path" id="path"></ol>
+    <p class="toast" id="toast" role="status"></p>
+    <div class="send">
+      <p><b>想往下走？一鍵複製，貼到官方 LINE 傳給 Chen</b></p>
+      <p class="muted" id="sendText" style="white-space:pre-line"></p>
+      <button class="primary" id="sendBtn">一鍵複製</button>
+    </div>
+  </section>
+
+  <section class="panel after" style="background:var(--gold-soft);border-color:var(--gold)" hidden>
+    <h2>想往下走，回 LINE 找我</h2>
+    <p>看完數字、抽完牌，想解鎖下一步，回到官方 LINE 跟我說「解鎖第幾步」，再把妳這份報告的截圖傳給我，我陪妳一起往下看。</p>
+    <p>走到第十步，就來沐美找我，做一次實體療癒（精油抓周＋岩盤浴），把這一路看見的，真的放進妳的生活裡。</p>
+    <a href="https://lin.ee/7TJ603O" target="_blank" rel="noopener" style="display:inline-block;background:#06c755;color:#fff;text-decoration:none;font-weight:700;padding:12px 20px;border-radius:12px;width:max-content">加官方 LINE，傳給 Chen</a>
+  </section>
+
+  <p class="foot">這份分析是陪妳覺察，不是幫妳下結論。真正的答案在妳自己身上。</p>
+</div>
+
+<script>
+// 54 張貓牌 × 4 種關係狀態（曖昧中／交往中／剛分開／已婚），依 Chen 貓牌技能牌義改寫
+const CARD_REL={
+"甲木":["這段還有往上長的空間，但要慢慢培養，不會一下就確定關係。","你們還在一起長大，彼此都有往前的意願，給它時間會更穩。","結束不代表沒路了，有一條新的路正在長出來，可能是妳自己的。","這段婚姻還有重新長起來的力氣，只是要兩個人一起慢慢種。"],
+"乙木":["他不是沒感覺，是越在乎越不敢往前，怕太快也怕受傷。","你們都在小心翼翼地配合，怕衝突，有些話就一直沒說。","妳還在柔柔地撐著這段，捨不得放，也還沒準備好往前。","妳一直在忍、在配合、在慢慢修補，記得問問自己還撐得住嗎。"],
+"丙火":["感覺來得很快很熱，但熱得快也可能散得快。","情緒很熱，一吵就容易說重話，兩個人都想先講自己的。","情緒還在燒，現在說的話很容易是氣話，先別急著談。","家裡的火氣不小，一點小事就容易點燃，先降溫再說。"],
+"丁火":["有一盞小火在慢慢亮起來，他會越來越願意說真心話。","熱度在回溫，很適合把心裡真正的感受說出來。","心裡還有一點小火，可能是想念，也可能是妳重新點亮自己的力量。","你們之間還有溫度，一點小小的用心就能把它重新點亮。"],
+"戊土":["這段急不得，他在慢慢觀察，妳追得越緊他越不動。","關係很穩，但有人什麼都自己扛，不太示弱。","先穩住自己，不要追著要答案，時間會讓事情沉下來。","他像一座山，什麼都自己扛，不說不代表不在乎。"],
+"己土":["有人把自己的想法抓得很緊，心裡有話一直沒說出口。","你們各自卡在自己的立場，累積了沒說的委屈。","妳心裡有一句話一直放不下，抓得越緊越走不出來。","這段婚姻裡累積了很多沒說的話，慢慢變成無名火。"],
+"庚金":["該做決定了，能改變這段現況的人是妳自己。","這段需要清楚的界線，該說的不能再吞回去。","這張在幫妳切斷不健康的連結，妳比自己以為的更有力量。","該立界線的地方要立，婚姻裡也要留一塊屬於妳自己的位置。"],
+"辛金":["他明明有感覺，但在提醒自己不要陷太深。","有人開始壓著感受，說話變得理性、有距離。","他的態度變硬，是在劃清界線，不一定是完全不愛。","你們之間多了一層客氣和克制，有些感覺被收起來了。"],
+"壬水":["他的心思很多，重心現在不在感情上，硬追只會更遠。","有人需要一點空間自己消化，先別急著把他拉回來。","現在最好的方式是平靜地拉開距離，回到妳自己的生活。","他在用自己的方式消化情緒，給空間比逼他講更有用。"],
+"癸水":["熱度在慢慢退，很多話他已經不想再解釋。","不是爆炸，是慢慢冷掉，要注意的是哪天其中一個人不想管了。","情緒在收回來了，這是放下的開始，也是心在保護妳。","你們不是大吵，是安靜地冷掉，很多話都懶得說了。"],
+"子":["兩個人的情緒都還沒穩，急著確定關係容易又卡回原點。","事情還在變動，現在談重大決定容易回到同一個問題。","雙方都還在情緒裡，現在急著談復合，只會重演原本的問題。","有些情緒還沒沉澱，先等一等，再好好談。"],
+"丑":["現在種下的不會馬上有結果，感情要一點一點培養。","你們在慢慢耕耘，急著要收成反而會壞掉。","現在是重新播種的時候，種的是妳自己，不是他。","婚姻是長期耕耘，現在多做一點，以後才收得到。"],
+"寅":["有一條新的路在打開，事情開始往前，但逼太緊他會退。","關係進入新階段，可以一起規劃下一步，慢慢走就好。","新的開始已經在打開了，往前走的那個人是妳。","你們之間有重新啟動的機會，一起做一件新的事吧。"],
+"卯":["他還在各方評估，想很多，還沒把自己全押上來。","有人心裡還在算，還沒有百分之百投入這段。","他在權衡利弊，回不回頭對他來說還在算。","你們之間多了一些計算，誰付出多、誰付出少都記著。"],
+"辰":["你們卡在僵局，誰都不先往前一步。","不是沒感情，是兩個人都不退，關係卡住了。","這段還在拉扯，沒有真正結束，也沒有真正開始。","有個問題一直卡著，兩個人都不肯先退一步。"],
+"巳":["妳很會看他回訊的速度和語氣，但察覺到的不一定就是真相。","妳把他的細節看得很清楚，也因此夜深人靜很容易想很多。","妳還在翻他的動態、讀他的每個字，這會讓妳更難放下。","妳對他的每個變化都很敏感，記得先問，不要先猜。"],
+"午":["感覺來得很快很直接，有人很想往前衝。","熱情很足，很直球，正在熱戀的高點。","衝動還在，想立刻做點什麼，先等熱度過去再決定。","你們之間還有火花，很適合來一場說走就走的約會。"],
+"未":["他念舊，心裡可能還放著過去的人或事。","前面累積了一些沒處理完的事，現在慢慢浮上來。","妳念舊，把他放在心裡，但累積的問題也是真的。","這段婚姻累積了很多回憶，也累積了沒處理完的問題。"],
+"申":["有機會，但要靠互動和推進，不是坐著等他。","他現在很在意現實、工作和收入，腦袋不是只有感情。","他的重心在現實和工作上，感情現在不是他的第一順位。","你們被現實和錢的事佔滿了，要記得留點空間給彼此。"],
+"酉":["他還在觀察、還在評估妳值不值得信任，還沒表態。","你們之間還有一點防備，信任要靠時間慢慢累積。","信任受過傷，妳會一直在觀察他是不是真的變了。","有人還在觀察對方，信任需要重新被建立。"],
+"戌":["他有責任感，但不太會表達，在乎都放在心裡。","他很守承諾，只是不說好聽話，用行動在顧這段。","他不是沒有心，是把事情都放在心裡自己扛。","他用扛責任的方式愛這個家，只是很少說出口。"],
+"亥":["他的感受很深，但往內收，很多話沒說出口。","有人把情緒藏得很深，需要一個安全的時候才會說。","妳的難過很深，需要時間自己消化，這很正常。","你們心裡都有很多話，只是還沒找到說出口的時機。"],
+"紫微":["他想自己掌握節奏，不喜歡被逼著交代關係。","有人想主導這段關係的方向，另一個人要記得守住自己。","他想自己決定要不要回頭，逼他只會讓他更遠。","家裡的主導權偏向一邊，要記得妳也有說話的位置。"],
+"天機":["他想得比做得多，一直在算這段有沒有未來。","有人一直在想未來、想現實，反覆評估。","他還在想、還在算，想的比做的多。","你們腦袋裡都在想很多事，記得把想的說出來。"],
+"太陽":["他對妳有好感，覺得妳有魅力、相處有溫度。","你們在彼此眼中都很亮，這份好感是真的。","他對妳的好感還在，但好感不等於想回頭。","你們還看得見對方的好，這是婚姻最珍貴的地方。"],
+"武曲":["有人想把關係往前推，會用行動表現，不太說甜言蜜語。","他用實際的付出在愛妳，行動比話多。","有一股想往前的力氣，可能是他想挽回，也可能是妳要出發了。","他用賺錢、扛家的方式在愛，很少說好聽的話。"],
+"天同":["相處很舒服，但太舒服了，沒人想去定義關係。","你們在一起很自在，小心停在舒適區太久。","妳想念的可能是那份習慣和陪伴，不一定是他這個人。","你們像老朋友一樣舒服，也要記得偶爾當回戀人。"],
+"廉貞":["曖昧、吸引、試探，界線還很模糊。","吸引力還在，但要留意彼此跟異性的界線。","這段的界線還沒切乾淨，曖昧的感覺還留著。","婚姻裡的界線值得多看一眼，信任要兩個人一起守。"],
+"天府":["他其實希望穩定，不想輕易失去妳。","你們都想把這段守住，關係有底，很穩。","有人還想把這段守住，捨不得就這樣放掉。","這個家有底，兩個人都想好好守著它。"],
+"太陰":["感情是一點一點累積的，他對妳的在乎很細膩。","你們的愛是慢慢變厚的，不轟轟烈烈，但很踏實。","妳的感受很細，傷也是一層一層累積的，慢慢來。","你們一起累積了很多，這份厚度別人拿不走。"],
+"貪狼":["吸引和慾望是真的，但「想要」不等於承諾。","激情很足，但要分清楚是愛，還是一時的想要。","讓妳放不下的，可能是那股吸引力，不是這段關係本身。","外面的誘惑要留意，婚姻需要兩個人一起顧。"],
+"巨門":["你們話很多，但也容易互相質疑，越解釋越亂。","嘴巴是你們的課題，一句話說錯就會吵起來。","你們之間還有很多沒講清楚的話，越想解釋越說不清。","家裡的爭論不少，先聽完再回，會少吵很多架。"],
+"天相":["他有好感，但還在看你們能不能好好走下去。","你們在學著配合、協調，看彼此適不適合長久。","他在重新評估這段，還沒決定。","婚姻需要不斷協調，現在是重新找平衡的時候。"],
+"天梁":["這段需要的是信任，不是一直猜。","用成熟的方式溝通，不要只糾結誰對誰錯。","信任要重建，比感覺更重要的是他做不做得到。","這個家需要的是信任和規則，把話攤開來說清楚。"],
+"七殺":["他被妳吸引、很在意，但同時怕受傷、在防備。","張力很強，愛得很用力，也吵得很用力。","這段的張力還在，想靠近又怕再受傷。","你們之間還有火，但也有很強的防備心。"],
+"破軍":["關係不穩，可能一下就翻盤，別把全部都押上。","這段在大變動，可能要推倒重來，才能走得下去。","舊的已經推倒了，接下來是重建妳自己的時候。","婚姻面臨大調整，有些舊的相處方式要整個換掉。"],
+"左輔":["你們互相幫忙、互相支持，是很好的開始。","你們是彼此的支持，一起扛事情。","妳過去一直在幫他、撐他，現在換妳好好被支持。","你們是一起扛家的隊友，這份支持很難得。"],
+"右弼":["你們還會互動、還在彼此生活裡，但不一定是戀愛。","身邊有人在給你們建議，要分清楚哪些是你們自己想要的。","你們之間還有聯絡，但不代表會回到戀愛。","你們還在彼此的生活裡，像室友也像夥伴。"],
+"文昌":["妳一直在腦袋裡整理這段，回顧每一句話。","有人在默默回顧這段關係，想很多但沒說。","妳還在反覆整理發生過的事，想找出哪裡錯了。","你們心裡都在回顧這段婚姻，該拿出來好好聊了。"],
+"文曲":["他想很多、感受很多，但不一定說出口。","有人心裡有很多感受，需要妳先開一個安全的口。","妳心裡的話很多，寫下來比憋著好。","有些感受放在心裡太久，該讓對方知道了。"],
+"天魁":["妳在他心裡很有份量，他信任妳也欣賞妳。","你們把彼此放在很重要的位置，這份尊重很珍貴。","妳在他心裡還是很重要，但重要不代表會回來。","你們依然很看重彼此，這是這段婚姻的底氣。"],
+"天鉞":["你們有緣分、有發展的可能，但還不等於會在一起。","這段有緣分在推，遇到卡關也比較容易被幫一把。","緣分還沒斷乾淨，但要不要再續，是妳的選擇。","你們的緣分很深，記得好好珍惜。"],
+"祿存":["有東西留在你們之間，但可能停在原地沒往前。","關係有底，但有點停滯，需要一點新的推力。","這段還留著一些東西，讓妳捨不得放。","家裡有底、有守著的東西，但感情有點停在原地。"],
+"天馬":["狀態正在轉換，可能有距離或移動的變化。","有搬家、換工作或遠距離的變動，要一起面對。","妳正在移動到人生的下一站，往前走就好。","家裡有變動，換環境也可能帶來新的相處方式。"],
+"擎羊":["有人在防備，怕受傷，靠近時容易硬碰硬。","你們之間有刺，一碰就容易起衝突。","該讓自己有一點刺了，守住界線，不要再委屈自己。","家裡壓力很大，兩個人都帶著刺在說話。"],
+"陀羅":["同一個問題一直回來，你們在原地繞圈。","同一件事吵了很多次，不是解決一次就好。","這段一直拖著，分了又聯絡，聯絡了又受傷。","同樣的問題反覆出現，要換個方式處理了。"],
+"火星":["他忽冷忽熱，態度突然改變，讓妳很沒安全感。","有人的情緒來得很急，一下就變臉。","他的態度可能突然改變，別因為一次的熱就全部交出去。","家裡常有突然爆開的時刻，先冷靜再談。"],
+"鈴星":["一句話、一個反應，就能讓情緒被點燃。","小事很容易變大事，兩個人都很敏感。","一點小訊息就能讓妳情緒翻騰，先別急著回。","家裡一點小事就容易點燃，情緒需要出口。"],
+"地空":["他在降低存在感，還沒真正把妳放進他的生活。","有人的心有點抽離，人在，心不一定在。","心裡空了一塊，這個空缺要先好好陪自己。","你們都在，但心裡有一塊已經空掉很久了。"],
+"地劫":["這段正在消耗妳的能量，先別一次投入全部。","你們在互相消耗，要停下來看看哪裡在漏。","這段讓妳耗掉很多，現在是把能量收回來的時候。","婚姻裡的消耗不小，錢、體力、心力都要重新分配。"],
+"化祿":["有好轉的空間，關係有機會往好的方向走。","有修復的空間，一點用心就會有回饋。","有修復的可能，但修復的不一定是關係，可能是妳自己。","這段婚姻有好轉的能量，現在付出會有回報。"],
+"化權":["方向握在一個人手上，另一個一直順著走。","有人一直在讓，看看這段關係平不平衡。","主導權一直在他手上，現在該拿回來了。","家裡有一方在主導，記得妳的聲音也要被聽見。"],
+"化科":["先把妳真正想要的說清楚，比急著要答案重要。","有誤會要釐清，好好說開就會順很多。","把這段發生了什麼整理清楚，妳才放得下。","把需求和誤會攤開來說，很多事其實不難解。"],
+"化忌":["有心結、有委屈，這不是妳想太多，是真的要正視。","有人心裡卡著很深的結，負面情緒正在累積。","這段留下了執念和委屈，要先好好處理自己的心。","婚姻裡有很深的心結，這是需要正視的訊號。"]
+};
+const CARDS=[
+["甲木","天干","這段還有重新長起來的空間，但要慢慢培養，不會一下就開花。"],
+["乙木","天干","越在乎越容易退，你們之間有在意，也有不敢往前。"],
+["丙火","天干","情緒很熱，熱得快也炸得快，話容易說重。"],
+["丁火","天干","有一點小火在回溫，慢慢願意說出真心話。"],
+["戊土","天干","這段急不得，先穩住自己，不要追著要答案。"],
+["己土","天干","有人把自己的立場抓得很緊，心裡累積了沒說出口的話。"],
+["庚金","天干","該做決定、該立界線了，能改變現況的是妳自己。"],
+["辛金","天干","明明有感覺卻壓著，有人在提醒自己不要陷太深。"],
+["壬水","天干","有人在拉開距離、自己消化，硬碰硬只會更遠。"],
+["癸水","天干","不是爆炸，是慢慢冷掉，很多話不想再解釋。"],
+["子","地支","情緒還沒沉澱，急著談只會回到原本的問題。"],
+["丑","地支","像在播種，現在種下的不會馬上看到結果。"],
+["寅","地支","有新的開始在打開，但要慢慢走，逼太緊會退。"],
+["卯","地支","還在權衡、還在評估，還沒把自己全押上來。"],
+["辰","地支","卡在僵局，兩個人都不退。不是沒感情，是卡住了。"],
+["巳","地支","很會看細節、回訊速度、語氣，但察覺到的不一定就是事實。"],
+["午","地支","直球、熱情、來得快，感覺很強烈。"],
+["未","地支","念舊，把人放在心裡，也累積了前面沒處理完的事。"],
+["申","地支","有機會，但要靠互動和推進，不是坐著等。"],
+["酉","地支","還在觀察，還在評估值不值得信任。"],
+["戌","地支","有責任感，但習慣把事情放心裡、不主動說。"],
+["亥","地支","情緒很深，往內收，很多感受沒說出口。"],
+["紫微","主星","有人想掌握節奏，不喜歡被逼著交代。"],
+["天機","主星","想得比做得多，一直在算這段有沒有未來。"],
+["太陽","主星","有好感，覺得對方有魅力、相處有溫度。"],
+["武曲","主星","想往前推，用行動表現，不太會說甜言蜜語。"],
+["天同","主星","舒服、陪伴、習慣，容易停在舒適區，沒人去定義關係。"],
+["廉貞","主星","曖昧、吸引、試探，界線還不清楚。"],
+["天府","主星","想把關係守住，希望穩定，不想輕易失去。"],
+["太陰","主星","細膩，感情是一點一點累積變厚的。"],
+["貪狼","主星","吸引和慾望是真的，但「想要」不等於承諾。"],
+["巨門","主星","話很多、解釋很多，也容易質疑和爭論。"],
+["天相","主星","有好感，但還在看你們能不能好好走下去。"],
+["天梁","主星","這段需要的是信任和成熟的溝通，不是爭誰對誰錯。"],
+["七殺","主星","被吸引、很在意，但同時怕受傷、會防備。"],
+["破軍","主星","關係不穩，受不了的時候可能全部推翻重來。"],
+["左輔","輔星","有人一直在幫、在撐這段關係。"],
+["右弼","輔星","還會互動、還在彼此生活裡，但不一定是戀愛。"],
+["文昌","輔星","腦袋一直在整理、回顧這段。"],
+["文曲","輔星","想很多、感受很多，但不一定說出口。"],
+["天魁","輔星","對方在心裡很有份量，有信任也有欣賞。"],
+["天鉞","輔星","有緣分、有發展的可能，但不等於一定會在一起。"],
+["祿存","輔星","有東西留在這段關係裡，但可能停在原地沒往前。"],
+["天馬","輔星","有變動、有移動，狀態正在轉換。"],
+["擎羊","輔星","有防備、有刺，容易硬碰硬。"],
+["陀羅","輔星","同一個問題一直回來，繞圈、拖著。"],
+["火星","輔星","忽冷忽熱，態度會突然改變。"],
+["鈴星","輔星","一點小事就容易點燃情緒。"],
+["地空","輔星","有人在抽離、降低存在感，心裡有一塊是空的。"],
+["地劫","輔星","這段正在消耗妳的能量。"],
+["化祿","四化","有修復、好轉的空間。"],
+["化權","四化","有一方握著方向，另一方一直順著走。"],
+["化科","四化","先把真正的問題說清楚，比急著要結果重要。"],
+["化忌","四化","有心結、委屈、執念，這是要正視的訊號。"]
+];
+
+const SAMPLE=`[LINE] 與阿哲的聊天記錄
+儲存日期：2026/11/17 18:00
+
+2026/09/02（三）
+21:03	小雅	今天下班好晚喔
+21:05	小雅	你吃飯了嗎
+22:41	阿哲	剛吃完
+22:42	小雅	吃什麼～
+23:58	阿哲	便當
+2026/09/05（六）
+13:10	阿哲	妳今天有空嗎 想去看展
+13:11	小雅	有！幾點？
+13:12	小雅	我可以三點到
+13:40	阿哲	好 三點見
+2026/09/09（三）
+20:15	小雅	今天主管又在找我麻煩，好想離職
+20:16	小雅	你最近工作還好嗎
+21:50	阿哲	還行
+21:51	小雅	那就好
+2026/09/14（一）
+00:42	小雅	睡不著
+00:43	小雅	在想我們上次聊的那個旅行
+00:44	小雅	你還想去嗎
+09:20	阿哲	看時間吧
+09:21	小雅	好～
+2026/09/20（日）
+19:00	小雅	我今天去看了那部電影，好好哭
+19:01	小雅	下次想跟你一起看
+20:33	阿哲	哈哈 好啊
+2026/09/27（日）
+22:10	阿哲	在幹嘛
+22:10	小雅	在等你找我啊
+22:11	小雅	開玩笑的啦
+22:30	阿哲	😂
+2026/10/03（六）
+15:22	小雅	你週末都在幹嘛
+17:45	阿哲	睡覺
+17:46	小雅	你很好懂欸
+2026/10/10（六）
+21:40	小雅	我想問你一件事
+21:41	小雅	你覺得我們現在算什麼
+23:59	阿哲	怎麼突然這樣問
+00:01	小雅	沒有啦，就想知道
+00:02	小雅	不想回答也沒關係
+01:15	阿哲	先這樣不好嗎
+2026/10/18（日）
+20:20	小雅	最近好像都是我在找你
+20:21	小雅	你是不是很忙
+22:58	阿哲	最近真的比較忙
+22:59	小雅	好，那你忙完再說
+2026/10/26（一）
+12:30	小雅	中午吃什麼
+15:10	阿哲	隨便吃
+15:11	小雅	要好好吃飯欸
+2026/11/02（一）
+23:40	小雅	今天看到你限動，你去聚餐喔
+23:41	小雅	好像很好玩
+01:30	阿哲	還好
+2026/11/09（一）
+21:00	小雅	你這週末有空嗎
+21:01	小雅	想約你吃飯
+23:45	阿哲	再看看
+2026/11/15（日）
+00:20	小雅	我是不是很煩
+00:21	小雅	你可以直接跟我說
+10:05	阿哲	沒有啊
+10:06	小雅	好`;
+
+
+function parse(text){
+  const out=[]; let day=null;
+  for(const raw of text.replace(/\r/g,"").split("\n")){
+    const line=raw.trimEnd(); if(!line) continue;
+    const d=line.match(/^(\d{4})[\/.\-](\d{1,2})[\/.\-](\d{1,2})/);
+    if(d && !line.includes("\t")){day=[+d[1],+d[2]-1,+d[3]];continue}
+    const m=line.match(/^(上午|下午)?\s?(\d{1,2}):(\d{2})\s*\t([^\t]+)\t?(.*)$/);
+    if(m && day){
+      let h=+m[2]; if(m[1]==="下午"&&h<12)h+=12; if(m[1]==="上午"&&h===12)h=0;
+      out.push({t:new Date(day[0],day[1],day[2],h,+m[3]),who:m[4].trim(),text:m[5]||""});
+    }else if(out.length && day && !/^\[LINE\]|^儲存日期/.test(line)){out[out.length-1].text+="\n"+line}
+  }
+  return out;
+}
+const median=a=>{if(!a.length)return null;const s=[...a].sort((x,y)=>x-y);const k=s.length>>1;return s.length%2?s[k]:(s[k-1]+s[k])/2};
+const fmtMin=m=>m==null?"—":m<60?Math.round(m)+" 分鐘":m<1440?(m/60).toFixed(1)+" 小時":(m/1440).toFixed(1)+" 天";
+
+function stats(msgs,me,other){
+  const S={}; for(const n of [me,other])S[n]={n:0,chars:0,start:0,reply:[],night:0,q:0,replyLate:[],replyEarly:[]};
+  const mid=msgs.length?msgs[0].t.getTime()+(msgs[msgs.length-1].t-msgs[0].t)/2:0;
+  msgs.forEach((m,i)=>{
+    const s=S[m.who]; if(!s)return;
+    s.n++; s.chars+=m.text.length;
+    const h=m.t.getHours(); if(h>=23||h<4)s.night++;
+    if(/[?？]|嗎/.test(m.text))s.q++;
+    const p=msgs[i-1];
+    const gap=p?(m.t-p.t)/60000:Infinity;
+    if(gap>360)s.start++;
+    else if(p.who!==m.who&&gap<720){s.reply.push(gap);(m.t.getTime()>mid?s.replyLate:s.replyEarly).push(gap)}
+  });
+  return S;
+}
+
+
+const STEPS=[
+ {t:"看見位置",d:"這段關係出現在妳的生命裡，是要讓妳看見什麼。",q:"這段關係，讓我看見了自己的哪一面？",h:"寫下這段關係讓妳最痛的一句話，再寫它在提醒妳什麼。",cost:0},
+ {t:"分辨愛和消耗",d:"安心、尊重、說真話、互相、一起變好，這五樣妳們少了哪幾樣。",q:"我放不下的，是他這個人，還是那種感覺？",h:"五樣各打 1～10 分，最低的那一樣，就是妳這段的功課。",cost:10},
+ {t:"看懂他",d:"他的沉默、退開、講道理，是他在乎的方式，還是在逃。",q:"我是在等他照我的方式愛我，還是願意看懂他的方式？",h:"這週他退開的時候先不追問，觀察他三天後的行動。",cost:10},
+ {t:"看懂自己",d:"妳的委屈和需要，有沒有被妳自己聽見。",q:"我上一次把自己的感受放在前面，是什麼時候？",h:"每天睡前問自己一次：我今天真正想要的是什麼？",cost:10},
+ {t:"說得出口",d:"不用吵贏，也能讓他聽懂妳。",q:"這一次，我想吵贏，還是想被懂？",h:"下一次想說「你都不……」，改成「我有點難過，因為……」。",cost:15},
+ {t:"讓愛流動",d:"給、收、回應，這段卡在哪一個。",q:"我一直在給，那我允許自己收嗎？",h:"他給妳一點什麼的時候，說聲謝謝，先不急著還。",cost:15},
+ {t:"找回溫度",d:"把在乎變成日常的小習慣，關係才不會變成室友。",q:"我們上一次好好看著對方說話，是什麼時候？",h:"這週約一次兩個人都不滑手機的晚餐。",cost:15},
+ {t:"放下舊傷",d:"同一種結局一直重來，傷口其實比這段關係更早。",q:"這種痛，我是不是很熟悉？",h:"回想上一段關係，找出跟這段一模一樣的那個瞬間。",cost:20},
+ {t:"成為完整的自己",d:"不靠對方來填補，妳自己就是滿的。",q:"如果我已經是滿的，我還會這樣等他嗎？",h:"做一件只為自己、不為任何人的事。",cost:20},
+ {t:"神仙伴侶",d:"兩個完整的人，一起走向想要的生活。",q:"我們想一起過的，是什麼樣的日子？",h:"這一步我們當面走：沐美實體療癒。",cost:-1}
+];
+let MSGS=[],NAMES=[],balance=0,current=0,opened=new Set(),LASTTYPE="",CALLS=[],EX={};
+
+function position(S,me,other){
+  const a=S[me],b=S[other],rel=document.getElementById("rel").value;
+  const starts=a.start+b.start||1,myStart=a.start/starts;
+  const ra=median(a.reply),rb=median(b.reply);
+  const lenA=a.n?a.chars/a.n:0,lenB=b.n?b.chars/b.n:1;
+  const late=median(b.replyLate),early=median(b.replyEarly);
+  const fights=MSGS.filter(m=>/吵|生氣|算了|隨便你|不想講|又這樣/.test(m.text)).length;
+  if(rel==="剛分開")return[0,"妳們剛分開。先別急著想下一步，第一步是看懂這段為什麼出現在妳的生命裡。"];
+  if(fights>=4&&fights/(MSGS.length||1)>=.04)return[4,"妳們不是沒感情，是一開口就容易卡住。這一步學怎麼說，他才聽得進去。"];
+  if((rel==="交往中"||rel==="已婚")&&late&&early&&late>early*1.3)return[6,"妳們還在一起，但最近慢慢冷下來了。這一步是把溫度找回來。"];
+  if(myStart>=.65&&((rb&&ra&&rb>ra*2)||lenA/lenB>=1.5))return[1,"話題大多是妳開的，妳回得快、他回得慢，妳說得多、他說得少。這段的天秤是斜的，先分清楚這是愛，還是在消耗妳。"];
+  if(myStart>=.55||a.q>b.q*2)return[2,"妳一直在問、在確認，他的心思妳看不太懂。先看懂他。"];
+  if(fights>=3)return[4,"妳們不是沒感情，是一開口就容易卡住。這一步學怎麼說，他才聽得進去。"];
+  if(late&&early&&late>early*1.5)return[6,"兩邊都有在找對方，但最近慢慢冷下來了。這一步是把溫度找回來。"];
+  if(rel==="已婚")return[5,"妳們的關係是穩的，接下來要看的是愛有沒有在流動。"];
+  return[3,"兩邊的互動算平衡。這時候最容易被忽略的，是妳自己的感受。"];
+}
+
+function deep(me,other){
+  const D={sess:0,startMe:0,endMe:0,streakMe:0,maxStreak:{[me]:0,[other]:0},short:{[me]:0,[other]:0},warm:{[me]:0,[other]:0},invite:{[me]:0,[other]:0},
+    per:{[me]:[0,0,0,0],[other]:[0,0,0,0]},months:{},unread:0};
+  let run=0,prev=null;
+  MSGS.forEach((m,i)=>{
+    const p=MSGS[i-1],n=MSGS[i+1];
+    const gapP=p?(m.t-p.t)/6e4:Infinity,gapN=n?(n.t-m.t)/6e4:Infinity;
+    if(gapP>360){D.sess++; if(m.who===me)D.startMe++}
+    if(gapN>360&&m.who===me){D.endMe++; if(gapN>720)D.unread++}
+    run=(prev===m.who)?run+1:1; prev=m.who;
+    if(run>D.maxStreak[m.who])D.maxStreak[m.who]=run;
+    if(run===3&&m.who===me)D.streakMe++;
+    const tx=m.text.trim();
+    if(!m.media&&(tx.length<=2||/^(嗯+|喔+|哦+|好+|ok|OK|哈+|呵+|對|是喔|還好|還行|隨便)[～~。.!！]*$/.test(tx)))D.short[m.who]++;
+    if(/想你|喜歡|愛你|寶貝|想見|抱抱|❤|♥|😘|🥰|💕/.test(tx))D.warm[m.who]++;
+    if(/約|見面|吃飯|有空|出來|一起去|一起看/.test(tx))D.invite[m.who]++;
+    const h=m.t.getHours(); D.per[m.who][h>=6&&h<12?0:h>=12&&h<18?1:h>=18&&h<23?2:3]++;
+    const k=`${m.t.getFullYear()}/${String(m.t.getMonth()+1).padStart(2,"0")}`;
+    const M=D.months[k]||(D.months[k]={[me]:0,[other]:0,rep:[]}); M[m.who]++;
+    if(m.who===other&&p&&p.who===me&&gapP<720)M.rep.push(gapP);
+  });
+  return D;
+}
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const md=d=>`${d.getMonth()+1}/${d.getDate()}`;
+let CAT="",SENDMSG="";
+document.getElementById("sendBtn").addEventListener("click",ev=>{
+  const b=ev.currentTarget;
+  navigator.clipboard.writeText(document.getElementById("sendText").textContent).then(()=>{b.textContent="已複製，去 LINE 貼上傳給 Chen"}).catch(()=>{const r=document.createRange();r.selectNodeContents(document.getElementById("sendText"));const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent="已選取，請按複製"});
+});
+const ADVICE={
+ define:{key:"這段關係一直沒有被說清楚。妳想要一個答案，他想保持現在這樣，妳們要的不一樣。",
+   dont:"不要再用「我們算什麼」逼他回答，也不要從他回訊息的速度去猜答案。逼得越緊，他退得越遠。",
+   say:["我很喜歡跟你相處，也想知道你是怎麼想的。不用現在回答，想好了再跟我說。","我不是要你給承諾，我只是想知道，我們是往同一個方向在走嗎？"],
+   act:"說完之後，接下來兩週不追問，只看他的行動：他有沒有主動約妳、有沒有讓妳更走進他的生活。行動就是他的答案。"},
+ fight:{key:"你們不是不愛，是吵完沒有真正和好。沒說開的話一直留著，下一次吵架就從那裡繼續。",
+   dont:"不要在情緒最高的時候講道理，也不要用「算了」把話收掉。算了不是放下，是累積。",
+   say:["我不想吵贏你，我只是希望你知道，我那時候真的很難過。","我們找個時間，把上次那件事好好講完，好嗎？"],
+   act:"下次快吵起來的時候，先說「我需要冷靜十分鐘」，十分鐘後再回來談。停下來，不是逃走。"},
+ unheld:{key:"妳說出在意的那一刻，他沒有接住。妳從那之後開始小心翼翼，他也開始保持距離。",
+   dont:"不要假裝沒事、一直找話題撐場面，也不要一直檢討自己是不是說錯話。",
+   say:["上次我跟你說那件事，其實是想讓你知道我很在乎。","我想聽聽你那時候是怎麼想的。"],
+   act:"這週把妳那時候真正的感受寫下來，先讓自己看懂，再決定要不要跟他說。"},
+ chase:{key:"這段的力氣幾乎都是妳在出。妳一直往前，他只要站著不動，關係也不會斷，所以他沒有往前的理由。",
+   dont:"不要再多傳一則、多問一句、多等一晚。妳越用力，他越不用出力。",
+   say:["我發現最近都是我在找你。我想知道，你也想跟我聊嗎？","我很在乎這段，但我不想只有我一個人在努力。"],
+   act:"這週先停下來，不主動找他三天。不是測試他，是把位置空出來，看他會不會走過來。"},
+ hechase:{key:"他比妳更用力，卡住的是妳。妳在猶豫的，可能比他在想什麼更值得看。",
+   dont:"不要用冷淡測試他，也不要因為不好意思拒絕而一直拖著。",
+   say:["謝謝你一直這麼主動。我需要一點時間想清楚，但我不是不在乎。","我想慢慢來，你願意等我嗎？"],
+   act:"問自己一句：我在怕什麼？是怕他不夠好，還是怕自己又受傷？"},
+ cool:{key:"沒有吵架、沒有大事，熱度是在習慣裡一點一點流失的。你們都還在，只是越來越像室友。",
+   dont:"不要等他先改變，也不要把「我以為你知道」當成表達。",
+   say:["我有點想念我們剛開始的時候。這週可以約一次只有我們兩個的晚餐嗎？","謝謝你今天……（說一件他做的小事）"],
+   act:"這週約一次兩個人都不滑手機的時間，哪怕只有半小時。"},
+ warm:{key:"現在很好。真正要看的，是這份熱度能不能變成長久的習慣，而不是只靠新鮮感撐著。",
+   dont:"不要以為現在好就不用經營，熱戀期的習慣，會決定之後的樣子。",
+   say:["跟你在一起很開心，我想一直這樣下去。","我們一起想想，五年後想過什麼樣的生活？"],
+   act:"這週一起做一件新的事，留下一個只屬於你們的小儀式。"},
+ near:{key:"兩邊都有在靠近，只差有人把話說破。等太久，曖昧會變成習慣，熱度也會慢慢退。",
+   dont:"不要一直等他先開口，也不要因為怕破壞現在的感覺就什麼都不說。",
+   say:["跟你在一起的時候很開心，我想知道你也是這樣覺得嗎？","我想更認真地認識你，不只是聊天而已。"],
+   act:"這週找一個只有你們兩個的時間，把妳的心意說一點出來。說一點就好，看他怎麼接。"},
+ breakup:{key:"妳們已經分開了，現在最重要的不是他怎麼想，是妳要怎麼把自己接回來。",
+   dont:"不要一直翻他的動態、重看對話紀錄，也不要用「只是問候一下」去試探他還在不在乎。",
+   say:["（對自己說）這段結束了，但我沒有結束。","（如果真的要聯絡）謝謝你陪我走過這一段，我想好好往前了。"],
+   act:"這週把他的對話先封存起來，不刪，但不要每天打開。把那些時間拿回來，做一件只為自己的事。"},
+ probe:{key:"兩個人都在試探，誰都沒有全心投入，也誰都沒有離開，關係停在一個說不清的位置。",
+   dont:"不要一直等對方先表態，也不要用忽冷忽熱去試探他。",
+   say:["跟你聊天很開心，我想多認識你一點。","你週末有空嗎？想約你出去走走。"],
+   act:"這週主動提一次見面。說出來，才會知道這段能不能往前。"}
+};
+function story(me,other,meetW){
+  CAT="";
+  if(MSGS.length<30)return `<li><p class="st-h">訊息太少，還畫不出回憶線索</p><p class="muted">上傳更長的對話（建議 3 個月以上），就能看到你們從熱到現在的變化。</p></li>`+adviceHTML();
+  const HEAVY=/我們(現在)?(算|是)什麼|算什麼關係|什麼關係|要不要在一起|在一起嗎|你(還)?喜歡我|你愛我|你是不是(不|很|在|又|根本)|你為什麼(都|又|不|要|總是)|是不是很煩|直接跟我說|你又這樣|又這樣|隨便你|算了啦|那就算了|不想講了|不想說了|分手|我們談談|好好談|冷戰|你變了|不在乎我|在乎我嗎|我很生氣|你在生氣|吵架|對你來說我|我到底是你的|對不起|抱歉|我錯了/;
+  const STOP=/[我你妳他她的了嗎呢吧啊喔嗯哦好是在有不要就也都會很還沒這那個們麼什怎可以去來說想看到一下今天明天現在知道真的覺得時候已經然後因為所以但是如果哈呵欸耶啦囉嘛吼喂對]/;
+  const topics=list=>{const c={};list.forEach(m=>{if(m.who&&m.text){const s=m.text.replace(/[^一-鿿]+/g," ");for(const seg of s.split(" "))for(let k=0;k+2<=seg.length;k++){const g=seg.slice(k,k+2);if(!STOP.test(g))c[g]=(c[g]||0)+1}}});
+    return Object.entries(c).filter(x=>x[1]>=2).sort((a,b)=>b[1]-a[1]).slice(0,5).map(x=>x[0])};
+  const mins=c=>{const m=c.text.match(/(\d+):(\d{2})(?::(\d{2}))?/);return !/通話時間|Call time/.test(c.text)||!m?0:m[3]?(+m[1])*60+(+m[2]):(+m[1])+(+m[2])/60};
+  const MK={};const key=d=>`${d.getFullYear()}/${String(d.getMonth()+1).padStart(2,"0")}`;
+  MSGS.forEach(m=>{const k=key(m.t);(MK[k]=MK[k]||{k,msgs:[],calls:0,cmin:0,warm:0}).msgs.push(m);if(/想你|喜歡|愛你|寶貝|想見|抱抱|❤|♥|😘|🥰|💕/.test(m.text))MK[k].warm++});
+  CALLS.forEach(c=>{const k=key(c.t);(MK[k]=MK[k]||{k,msgs:[],calls:0,cmin:0,warm:0});const mm=mins(c);if(mm>0){MK[k].calls++;MK[k].cmin+=mm}});
+  const months=Object.values(MK).sort((a,b)=>a.k<b.k?-1:1);
+  months.forEach(m=>{const [y,mo]=m.k.split("/").map(Number);const days=new Date(y,mo,0).getDate();m.perDay=m.msgs.length/days;m.score=m.perDay+m.calls*.8+m.cmin/30+m.warm*.5});
+  const pk=months.reduce((a,b)=>b.score>a.score?b:a,months[0]);
+  const pkI=months.indexOf(pk);
+  const dropM=months.slice(pkI+1).find(m=>m.score<pk.score*.6);
+  const mlabel=k=>`${+k.split("/")[1]} 月`;
+  const firstCall=CALLS.find(c=>mins(c)>0);
+  const firstN=MSGS.slice(0,Math.max(20,Math.floor(MSGS.length*.15)));
+  const callTxt=m=>m.calls?`，打了 ${m.calls} 通電話、總共講了 ${Math.round(m.cmin)} 分鐘`:"";
+  let html="";
+  html+=`<li><p class="st-h">一開始：你們怎麼聊開的</p><p class="st-d">${md(MSGS[0].t)} 開始</p>
+    <p>${topics(firstN).length?`一開始聊最多的是：<b>${topics(firstN).join("、")}</b>。`:""}${firstCall?`第一通電話是 ${md(firstCall.t)}。`:""}妳回想一下，那時候是什麼讓妳開始在意${other}？</p></li>`;
+  html+=`<li><p class="st-h">最熱的時候</p><p class="st-d">${mlabel(pk.k)}</p>
+    <p>每天平均聊 ${pk.perDay.toFixed(1)} 則${callTxt(pk)}${pk.warm?`，出現了 ${pk.warm} 次「想你」「喜歡」這類的話`:""}。${topics(pk.msgs).length?`這個月聊最多的是：<b>${topics(pk.msgs).join("、")}</b>。`:""}</p></li>`;
+  if(dropM)html+=`<li class="turn"><p class="st-h">開始變少</p><p class="st-d">${mlabel(dropM.k)}</p>
+    <p>每天 ${dropM.perDay.toFixed(1)} 則${dropM.calls<pk.calls?`，電話從 ${pk.calls} 通變成 ${dropM.calls} 通`:""}，比最熱的時候少了 ${Math.round((1-dropM.score/pk.score)*100)}%。${topics(dropM.msgs).length?`這個月聊的是：<b>${topics(dropM.msgs).join("、")}</b>。`:""}這段時間，妳們之間發生了什麼事？</p></li>`;
+  const sil=[];
+  for(let i=1;i<MSGS.length;i++){const g=(MSGS[i].t-MSGS[i-1].t)/864e5;if(g>=3&&MSGS[i].t>=new Date(pk.msgs[0].t))sil.push({i,g})}
+  sil.sort((a,b)=>b.g-a.g);
+  const silTop=sil.slice(0,2).sort((a,b)=>a.i-b.i);
+  if(silTop.length)html+=`<li class="turn"><p class="st-h">沉默期</p>${silTop.map(s=>{const before=MSGS.slice(Math.max(0,s.i-3),s.i),after=MSGS[s.i];
+    return `<p class="st-d">${md(MSGS[s.i-1].t)} 之後，整整 ${Math.round(s.g)} 天沒說話</p><div class="quote">${before.map(x=>`<span>${x.who===me?"妳":esc(other)}：${esc(x.text||"［貼圖／照片］")}</span>`).join("")}<span class="gap">…… ${Math.round(s.g)} 天後 ……</span><span>${after.who===me?"妳":esc(other)}：${esc(after.text||"［貼圖／照片］")}</span></div>`}).join("")}
+    <p>沉默前最後那幾句，常常就是卡住的地方。${silTop.some(s=>MSGS[s.i].who===me)?"而且沉默之後，是妳先開口的。":""}</p></li>`;
+  const hv=[];
+  MSGS.forEach((m,i)=>{if(!HEAVY.test(m.text))return;if(hv.length&&i-hv[hv.length-1].i<4)return;
+    let j=i+1;while(j<MSGS.length&&MSGS[j].who===m.who)j++;
+    hv.push({i,j,gap:j<MSGS.length?(MSGS[j].t-MSGS[j-1].t)/6e4:null})});
+  const hvTop=hv.length>5?hv.map((h,ix)=>({...h,ix})).sort((a,b)=>(b.gap||1e9)-(a.gap||1e9)).slice(0,5).sort((a,b)=>a.i-b.i):hv;
+  if(hvTop.length){
+    const fight=hvTop.some(h=>/吵|生氣|算了|隨便你|又這樣|不想講|分手|冷戰|對不起|抱歉|我錯了/.test(MSGS[h.i].text));
+    const define=hvTop.some(h=>/算什麼|什麼關係|在一起|喜歡我|愛我|我到底是你的|對你來說我/.test(MSGS[h.i].text));
+    CAT=fight&&!define?"fight":define?"define":"";
+    html+=`<li class="turn"><p class="st-h">這幾句話，可能就是轉折</p><p class="muted">對話裡談到你們的關係、吵架、說算了的時刻，照時間排好。妳回想一下，哪一句之後，事情開始不一樣了？</p>
+    ${hvTop.map(h=>{const a=MSGS.slice(Math.max(0,h.i-1),h.j).slice(-3),b=MSGS[h.j];
+      return `<p class="st-d">${md(MSGS[h.i].t)}</p><div class="quote">${a.map(x=>`<span>${x.who===me?"妳":esc(other)}：${esc(x.text||"［貼圖／照片］")}</span>`).join("")}${b?`${h.gap>60?`<span class="gap">隔了 ${fmtMin(h.gap)}</span>`:""}<span>${b.who===me?"妳":esc(other)}：${esc(b.text||"［貼圖／照片］")}</span>`:`<span class="gap">之後沒有回應</span>`}</div>`}).join("")}</li>`;
+  }else html+=`<li class="turn"><p class="st-h">轉折</p><p>對話裡沒有吵架、也沒有談到「我們算什麼」這類的話。如果熱度有變，比較像是在習慣裡慢慢流失的。</p></li>`;
+  const last=months[months.length-1];
+  html+=`<li><p class="st-h">現在</p><p class="st-d">${mlabel(last.k)}</p><p>每天平均 ${last.perDay.toFixed(1)} 則${callTxt(last)}。${last!==pk&&last.score<pk.score*.7?`跟最熱的時候比，少了 ${Math.round((1-last.score/pk.score)*100)}%。`:""}</p></li>`;
+  return html+adviceHTML();
+}
+function adviceHTML(){
+  const rel=document.getElementById("rel").value;
+  if(rel==="剛分開"&&CAT!=="fight")CAT="breakup";
+  if(!CAT){const t=LASTTYPE;CAT=/卡住/.test(t)?"fight":/妳在追/.test(t)?"chase":/他在追/.test(t)?"hechase":/室友|冷掉/.test(t)?"cool":/熱戀|好好愛著/.test(t)?"warm":/雙向/.test(t)?"near":"probe"}
+  const A=ADVICE[CAT];
+  return `<li class="prob"><p class="st-h">關鍵卡在這裡</p><p class="key">${A.key}</p>
+    <p class="st-d">先不要做的</p><p>${A.dont}</p>
+    <p class="st-d">下次可以這樣說</p><div class="quote">${A.say.map(x=>`<span>「${x}」</span>`).join("")}</div>
+    <p class="st-d">這週先做一件事</p><p>${A.act}</p>
+    <p class="muted">說了之後他怎麼接、為什麼會這樣，就是往下每一步要看的。</p></li>`;
+}
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const pct=(x,y)=>Math.round(x/((x+y)||1)*100);
+
+function render(){
+  let me=document.getElementById("me").value; if(!NAMES.includes(me))me=NAMES[0];
+  const other=NAMES.find(n=>n!==me)||"他";
+  const S=stats(MSGS,me,other),a=S[me],b=S[other],D=deep(me,other);
+  const myStart=pct(a.start,b.start),msgShare=pct(a.n,b.n),charShare=pct(a.chars,b.chars);
+  const ra=median(a.reply),rb=median(b.reply);
+  const lenA=a.n?a.chars/a.n:0,lenB=b.n?b.chars/b.n:0;
+  const shortB=b.n?Math.round(D.short[other]/b.n*100):0,shortA=a.n?Math.round(D.short[me]/a.n*100):0;
+  const late=median(b.replyLate),early=median(b.replyEarly);
+  const mk=Object.keys(D.months).sort();
+  const half=Math.max(1,Math.floor(mk.length/2));
+  const sumB=ks=>ks.reduce((s,k)=>s+D.months[k][other],0)/(ks.length||1);
+  const bEarly=sumB(mk.slice(0,half)),bLate=sumB(mk.slice(half));
+  const cooling=(late&&early&&late>early*1.5&&bLate<bEarly*.95)||(bLate<bEarly*.65);
+  const warming=(late&&early&&late<early/1.5&&bLate>bEarly*1.05)||(bLate>bEarly*1.5);
+  const rel=document.getElementById("rel").value, together=rel==="交往中"||rel==="已婚";
+  const fights=MSGS.filter(m=>/吵|生氣|算了|隨便你|不想講|又這樣/.test(m.text)).length, fightRate=fights/(MSGS.length||1);
+
+  let temp=50+(pct(b.start,a.start)-50)*.6;
+  const meetV=document.getElementById("meet").value, mw={"幾乎沒見過面":1,"一個月見幾次":.9,"每週見幾次":.7,"幾乎每天見面":.5,"住在一起":.4}[meetV]??1;
+  if(ra&&rb)temp+=rb<=ra?10:-clamp(Math.log2(rb/ra)*7,0,22)*mw;
+  temp+=clamp((lenB/(lenA||1)-1)*15,-12,8);
+  temp-=shortB*.3; temp+=clamp(D.warm[other]*3,0,15)+clamp(D.invite[other]*2,0,10);
+  temp+=cooling?-10*mw:warming?8:0; temp=Math.round(12+83/(1+Math.exp(-(temp-50)/18)));
+  const eff=Math.round(clamp((myStart+msgShare+charShare+pct(D.invite[me],D.invite[other]))/4,5,95));
+
+  let type,line;
+  if(fightRate>=.04&&fights>=4){type="愛還在，但一開口就卡住";line=`對話裡有 ${fights} 則是在吵、在生氣、在說算了。不是不在乎，是兩個人都不知道怎麼說，對方才聽得進去。`}
+  else if(together&&temp>=62&&eff>35&&eff<65){type=rel==="已婚"?"結婚了，還在好好愛著":"熱戀中，兩個人都很投入";line="兩邊都有在找對方、都回得快，說愛也說得出口。接下來要看的，是這份熱度能不能變成長久的習慣。"}
+  else if(together&&cooling&&eff>=55){type="還在一起，但慢慢變成室友";line="沒有大吵，只是越聊越少、越回越短。關係還在，溫度在一點一點往下掉。"}
+  else if(eff>=60&&temp<45){type="妳在追，他在退";line="妳一直往前，他一直保持距離。不是妳不夠好，是這段的力氣幾乎都是妳在出。"}
+  else if(eff<=40&&temp>=60){type="他在追，妳在退";line="他比妳更用力。妳在猶豫什麼，可能比他在想什麼更值得看。"}
+  else if(cooling&&temp<55){type="一起慢慢冷掉";line="沒有大吵，只是越聊越少。最近的對話量和他回覆的速度，都比前面掉了。"}
+  else if(temp>=58){type="雙向在靠近，但還沒說破";line="兩邊都有在找對方，只是還沒有人把話講清楚。"}
+  else{type="兩個人都在試探";line="誰都沒有全心投入，也誰都沒有離開，關係停在一個說不清的位置。"}
+  LASTTYPE=type;
+  document.getElementById("story").innerHTML=story(me,other,mw);
+  const meet=document.getElementById("meet").value;
+  const conf={"幾乎沒見過面":["高","你們幾乎都靠訊息聯絡，對話就是這段關係的全部。"],
+    "一個月見幾次":["高","你們大多靠訊息聯絡，對話很能代表這段關係。"],
+    "每週見幾次":["中","你們常見面，有一部分的相處不在對話裡。"],
+    "幾乎每天見面":["參考就好","你們幾乎天天見面（像同事、同學），很多話是當面講的，訊息少、回得慢都很正常。這份報告看的是「打字時的你們」。"],
+    "住在一起":["參考就好","你們住在一起，很多話是當面講的，訊息少、回得慢都很正常。這份報告看的是「打字時的你們」。"]}[meet]||["中",""];
+  document.getElementById("verdict").innerHTML=`<span class="v-type">${type}</span><p>${line}</p><p class="conf">這份分析的參考度：<b>${conf[0]}</b>。${conf[1]}</p>`;
+  document.getElementById("blind").innerHTML=`<p><b>這份報告看不到的地方</b></p>
+    <p>對話只記錄了你們打字的樣子。當面時的語氣、眼神、一個擁抱、一起做的事、吵完之後怎麼和好，這些都不在訊息裡。${conf[0]==="高"?"你們見面不多，這部分影響比較小，但還是有。":"你們常見面，這一塊可能比對話還重要。"}</p>
+    <p>數字看得到「打字的你們」，牌和跟 Chen 聊，看的是「當面的你們」和你們心裡正在發生的事。這也是往下每一步要補上的部分。</p>`;
+  document.getElementById("tempNum").textContent=temp+" 度";
+  document.getElementById("tempBar").style.width=temp+"%";
+  document.getElementById("tempNote").textContent=temp>=65?"他對妳是熱的":temp>=45?"不冷不熱，還在觀望":"偏冷，妳要有心理準備";
+  document.getElementById("effNum").textContent=eff+"%";
+  document.getElementById("effBar").style.width=eff+"%";
+  document.getElementById("effNote").textContent=eff>=60?`天秤明顯斜向妳，${other}只出了 ${100-eff}%`:eff<=40?`${other}比妳更用力`:"兩邊差不多";
+
+  const bar=(l,x,y)=>`<div class="split"><span class="s-l">${l}</span><div class="s-bar"><i style="width:${x}%"></i></div><span class="s-v">妳 ${x}%・${other} ${100-x}%</span></div>`;
+  document.getElementById("share").innerHTML=bar("訊息則數",msgShare)+bar("打的字數",charShare)+bar("先開口",myStart)+bar("約對方",pct(D.invite[me],D.invite[other]));
+
+  document.getElementById("tiles").innerHTML=`
+    <div class="tile"><b>${fmtMin(rb)}</b><span>${other}平均多久回妳</span></div>
+    <div class="tile"><b>${fmtMin(ra)}</b><span>妳平均多久回${other}</span></div>
+    <div class="tile"><b>${D.sess?Math.round(D.endMe/D.sess*100):0}%</b><span>對話最後一句停在妳</span></div>
+    <div class="tile"><b>${D.unread} 次</b><span>妳傳完，半天以上沒等到回應</span></div>
+    <div class="tile"><b>${D.maxStreak[me]} 則</b><span>妳最多連續傳了幾則</span></div>
+    <div class="tile"><b>${shortB}%</b><span>${other}的回覆只有一兩個字</span></div>`+(CALLS.length?`<div class="tile"><b>${CALLS.filter(c=>c.who===me).length} : ${CALLS.filter(c=>c.who===other).length}</b><span>打電話的次數（妳 : ${other}）</span></div><div class="tile"><b>${EX.media} 則</b><span>貼圖、照片、語音</span></div>`:"");
+
+  const maxM=Math.max(1,...mk.map(k=>Math.max(D.months[k][me],D.months[k][other])));
+  document.getElementById("trend").innerHTML=mk.map(k=>{const M=D.months[k],r=median(M.rep);
+    return `<div class="t-row"><span class="t-m">${k.slice(5)} 月</span><div class="t-bars">
+      <div class="t-b me" style="width:${M[me]/maxM*100}%"><span>妳 ${M[me]}</span></div>
+      <div class="t-b ot" style="width:${M[other]/maxM*100}%"><span>${other} ${M[other]}</span></div></div>
+      <span class="t-r">回妳 ${fmtMin(r)}</span></div>`}).join("");
+  document.getElementById("trendNote").textContent=MSGS.length<80?"訊息還不夠多，走勢先看看就好，上傳更長的對話會更準。":cooling?`整體走勢：${other}越來越冷。後半段他傳的訊息比前半段少了 ${Math.max(0,Math.round((1-bLate/(bEarly||1))*100))}%${late&&early&&late>early?`，回妳的時間慢了 ${Math.round((late/early-1)*100)}%`:""}。`
+    :warming?`整體走勢：${other}在回溫，最近找妳、回妳都比之前積極。`:"整體走勢：起伏不大，關係停在差不多的溫度。";
+
+  const names=["早上","下午","晚上","深夜"];
+  const pa=D.per[me],pb=D.per[other],pm=Math.max(1,...pa,...pb);
+  document.getElementById("periods").innerHTML=names.map((n,i)=>`<div class="split"><span class="s-l">${n}</span>
+    <div class="p-bars"><i class="me" style="width:${pa[i]/pm*100}%"></i><i class="ot" style="width:${pb[i]/pm*100}%"></i></div>
+    <span class="s-v">妳 ${pa[i]}・${other} ${pb[i]}</span></div>`).join("");
+
+  const o=[];
+  o.push(myStart>=60?`十次對話，有 ${Math.round(myStart/10)} 次是妳先開口。${other}很少主動來找妳。`:myStart<=40?`${other}先開口的次數比妳多，他其實會主動找妳。`:"先開口的次數兩邊差不多。");
+  if(ra&&rb&&rb>ra*2)o.push((ra<5?`妳幾乎是秒回他，他平均要 ${fmtMin(rb)} 才回妳。妳一直在線上，他不是。`:`妳平均 ${fmtMin(ra)} 就回他，他要 ${fmtMin(rb)}。同一段對話，妳在等的時間是他的 ${Math.round(rb/ra)} 倍。`)+(mw<1?"（你們常見面，回得慢不一定是冷，可能他習慣當面講。）":""));
+  if(lenB&&lenA/lenB>=1.5)o.push(`妳一則平均 ${Math.round(lenA)} 個字，他只有 ${Math.round(lenB)} 個。妳在分享生活，他在回覆訊息。`);
+  if(shortB>=30)o.push(`他有 ${shortB}% 的回覆只有一兩個字（「好」「嗯」「還行」）。妳的 ${shortA}%。`);
+  if(D.streakMe>=2)o.push(`妳有 ${D.streakMe} 次連續傳了三則以上，他還沒回。妳在等他接話的時候，心裡在想什麼？`);
+  if(a.q>b.q*2&&a.q>=3)o.push(`妳問了 ${a.q} 個問題，他只問了 ${b.q} 個。妳一直在了解他，他很少反過來了解妳。`);
+  if(pa[3]>pb[3]*1.5&&pa[3]>=3)o.push(`深夜的訊息，妳傳了 ${pa[3]} 則，他 ${pb[3]} 則。夜深的時候，最想念的人是妳。`);
+  if(D.invite[me]>D.invite[other])o.push(`提出見面、吃飯的，妳 ${D.invite[me]} 次，他 ${D.invite[other]} 次。`);
+  if(D.warm[me]+D.warm[other]===0)o.push("整段對話裡，沒有任何一句「想你」「喜歡」。你們在聊天，但沒有在談感情。");
+  document.getElementById("obs").innerHTML=o.map(t=>`<li>${t}</li>`).join("");
+  document.getElementById("hook").innerHTML=`<p><b>上面是「打字時的妳們」發生了什麼。</b></p>
+    <p>${cooling?`${other}越回越慢，是真的忙、是冷掉了，還是在等妳先停下來？`:`${other}這樣回妳，是在乎，還是習慣？`}這些數字回答不了。往下抽一張牌，看看這段關係底下，妳們心裡正在發生什麼。</p>`;
+
+  const [idx,why]=position(S,me,other);
+  current=idx; opened=new Set([idx]);
+  document.getElementById("here-h").textContent=`妳在第 ${idx+1} 步：${STEPS[idx].t}`;
+  document.getElementById("hereWhy").textContent=why;
+  document.getElementById("hereQ").textContent=`問問自己：${STEPS[idx].q}`;
+  SENDMSG=`Chen，我做完對話覺察報告了\n結論是「${type}」，他對我的溫度 ${temp} 度，我出了 ${eff}% 的力\n我現在在第 ${idx+1} 步「${STEPS[idx].t}」，想往下走`;
+  document.getElementById("sendText").textContent=SENDMSG;
+  drawPath();
+  if(typeof showCard==="function")showCard();
+}
+function drawPath(){
+  document.getElementById("path").innerHTML=STEPS.map((s,i)=>{
+    let cls="",right="";
+    if(i<current){cls="done";right=`<span class="chip done">走過了</span>`}
+    else if(i===current){cls="now";right=`<span class="chip now">妳在這裡</span>`}
+    else if(opened.has(i)){cls="open";right=`<span class="chip done">已解鎖</span>`}
+    else if(s.cost<0){right=`<span class="price">實體</span>`}
+    else{right=`<button data-i="${i}">解鎖</button>`}
+    const show=i===current||opened.has(i);
+    const stage={0:"階段一・看清",3:"階段二・修復",7:"階段三・蛻變"}[i];
+    return (stage?`<li class="stage">${stage}</li>`:"")+`<li class="step ${cls}"><span class="dot">${i+1}</span><div class="body"><h3>${s.t}</h3>
+      <p class="detail">${s.d}</p>${show?`<p class="homework">這週一步：${s.h}</p><p class="detail">自問：${s.q}</p>`:""}</div>${right}</li>`;
+  }).join("");
+}
+
+document.getElementById("path").addEventListener("click",e=>{
+  const btn=e.target.closest("button[data-i]"); if(!btn)return;
+  const i=+btn.dataset.i,cost=STEPS[i].cost,toast=document.getElementById("toast");
+  const msg=`Chen，我想解鎖第 ${i+1} 步「${STEPS[i].t}」`;
+  toast.innerHTML=`想看第 ${i+1} 步，把下面這句貼到官方 LINE 傳給 Chen，再附上這份報告的截圖：<br><b>${msg}</b> <button id="cp">複製這句</button>`;
+  document.getElementById("cp").addEventListener("click",ev=>{
+    const b=ev.currentTarget;
+    navigator.clipboard.writeText(msg).then(()=>{b.textContent="已複製"}).catch(()=>{const r=document.createRange();r.selectNode(toast.querySelector("b"));const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent="已選取，按複製"});
+  });
+});
+
+function load(text,label){
+  const raw=Array.isArray(text)?text:parse(text); MSGS=[]; CALLS=[]; EX={copy:0,sys:0,media:0,call:0};
+  if(typeof text!=="string")text="";
+  for(const m of raw){const t=m.text.trim();
+    if(/^\[?(貼圖|照片|影片|語音訊息|檔案|相簿|位置資訊|聯絡資訊|GIF|Sticker|Photo|Video|Voice message|File)\]?$/i.test(t)){m.text="";m.media=1;EX.media++;MSGS.push(m);continue}
+    if(/通話時間|未接來電|取消通話|無應答|Call time|Missed call|Canceled call|☎/.test(t)){EX.call++;CALLS.push(m);continue}
+    if(t.length<60&&/已收回訊息|unsent a message|已加入|邀請.*加入|建立了記事本|新增了相簿|changed the/.test(t)){EX.sys++;continue}
+    if(t.length>150||t.split("\n").length>=5||/https?:\/\/|www\./.test(t)||(t.match(/#[^\s#]+/g)||[]).length>=2){EX.copy++;continue}
+    MSGS.push(m)}
+  const cnt={}; MSGS.forEach(m=>cnt[m.who]=(cnt[m.who]||0)+1);
+  NAMES=Object.keys(cnt).sort((x,y)=>cnt[y]-cnt[x]).slice(0,2);
+  MSGS=MSGS.filter(m=>NAMES.includes(m.who));
+  const hd=text.match(/與(.+?)的聊天/), partner=hd&&NAMES.find(n=>n===hd[1].trim());
+  const meName=partner?(NAMES.find(n=>n!==partner)||NAMES[0]):NAMES[0];
+  document.getElementById("me").innerHTML=NAMES.map(n=>`<option${n===meName?" selected":""}>${n}</option>`).join("");
+  document.getElementById("me").value=meName;
+  if(!MSGS.length){document.getElementById("loaded").textContent="讀不到對話，請確認是 LINE 匯出的 .txt";return}
+  const days=Math.max(1,Math.round((MSGS[MSGS.length-1].t-MSGS[0].t)/864e5));
+  document.getElementById("loaded").textContent=`${label}：${MSGS.length} 則真聊天、${days} 天`+(EX.copy+EX.sys?`（已自動排除 ${EX.copy} 則轉貼的文案和連結、${EX.sys} 則系統訊息）`:"");
+  document.querySelectorAll(".after").forEach(x=>x.hidden=false);
+  if(MSGS.length<100)document.getElementById("loaded").textContent+="（少於 100 則，數字僅供參考）";
+  render();
+}
+document.getElementById("me").addEventListener("change",render);
+document.getElementById("rel").addEventListener("change",render);
+document.getElementById("meet").addEventListener("change",render);
+const fileIn=document.getElementById("file"),drop=document.getElementById("drop");
+const fixIG=s=>{try{return decodeURIComponent(escape(s))}catch(e){return s}};
+function igToRaw(jsons){
+  const out=[];
+  for(const j of jsons)for(const m of (j.messages||[])){
+    const who=fixIG(m.sender_name||""),t=new Date(m.timestamp_ms);
+    let text=m.content!=null?fixIG(m.content):"";
+    if(m.call_duration!=null){const s=+m.call_duration||0;text=s>0?`☎ 通話時間 ${Math.floor(s/60)}:${String(s%60).padStart(2,"0")}`:"☎ 未接來電"}
+    else if(m.photos)text="[照片]"; else if(m.videos)text="[影片]"; else if(m.audio_files)text="[語音訊息]"; else if(m.sticker)text="[貼圖]";
+    else if(m.share&&m.share.link)text=m.share.link;
+    if(/^(Reacted|對.*傳回應|Liked a message|unsent a message|已收回)/.test(text)&&!m.call_duration)continue;
+    if(!text)continue;
+    out.push({t,who,text});
+  }
+  return out.sort((a,b)=>a.t-b.t);
+}
+function readFiles(files){
+  files=[...files||[]];if(!files.length)return;
+  const js=files.filter(f=>/\.json$/i.test(f.name));
+  if(js.length){Promise.all(js.map(f=>f.text())).then(ts=>{
+      try{load(igToRaw(ts.map(t=>JSON.parse(t))),"IG 對話")}catch(e){document.getElementById("loaded").textContent="這個檔案讀不懂，請上傳 IG 下載資料裡 messages 資料夾的 message_1.json"}});return}
+  const r=new FileReader();r.onload=()=>load(r.result,files[0].name);r.readAsText(files[0],"utf-8");
+}
+function readFile(f){readFiles(f?[f]:[])}
+fileIn.addEventListener("change",e=>readFiles(e.target.files));
+drop.addEventListener("dragover",e=>{e.preventDefault();drop.classList.add("on")});
+drop.addEventListener("dragleave",()=>drop.classList.remove("on"));
+drop.addEventListener("drop",e=>{e.preventDefault();drop.classList.remove("on");readFiles(e.dataTransfer.files)});
+
+let drawn=false;
+const tarot=document.getElementById("tarot");
+let DRAWN=null;
+function showCard(){
+  if(!DRAWN)return; const c=DRAWN, rel=document.getElementById("rel").value;
+  const ri=["曖昧中","交往中","剛分開","已婚"].indexOf(rel), txt=(CARD_REL[c[0]]||[])[ri]||c[2];
+  const POS=/甲木|丁火|寅|午|丑|申|太陽|天府|太陰|天同|武曲|天魁|天鉞|左輔|天相|天梁|化祿|化科/, NEG=/癸水|壬水|辛金|己土|子|辰|卯|地空|地劫|擎羊|陀羅|火星|鈴星|化忌|破軍|巨門|七殺/;
+  const pol=POS.test(c[0])&&!NEG.test(c[0])?1:NEG.test(c[0])?-1:0;
+  const cold=/妳在追|室友|冷掉|卡住|試探/.test(LASTTYPE), name=c[0];
+  let mirror;
+  if(cold&&pol<0)mirror=`牌和數字說的是同一件事。妳們的結論是「${LASTTYPE}」，「${name}」也在講一樣的狀態：${txt}這不是妳想太多，是這段關係真的卡在這裡。`;
+  else if(cold&&pol>0)mirror=`數字看起來冷，但牌留了一扇門。妳們的結論是「${LASTTYPE}」，可是「${name}」說：${txt}這份好不會自己長出來，要看接下來你們怎麼做。`;
+  else if(!cold&&pol>0)mirror=`牌和數字都是暖的。妳們的結論是「${LASTTYPE}」，「${name}」也說：${txt}這段有往前的條件，現在要做的是把它守住。`;
+  else if(!cold&&pol<0)mirror=`數字是暖的，但牌提醒妳底下有一塊要注意。妳們的結論是「${LASTTYPE}」，可是「${name}」說：${txt}表面順，不代表心裡沒有結。`;
+  else mirror=`妳們的結論是「${LASTTYPE}」，「${name}」說的是：${txt}這張牌不站在好或壞那一邊，它在等妳先看清楚，再決定往哪裡走。`;
+  const A=ADVICE[CAT]||ADVICE.probe;
+  document.getElementById("cardText").innerHTML=`<h3>妳抽到「${name}」</h3><p class="muted">${c[1]}牌</p>`;
+  document.getElementById("cardMore").innerHTML=`
+    <div class="cm"><p class="st-d">這張牌在說什麼</p><p>${c[2]}</p></div>
+    <div class="cm"><p class="st-d">放在妳們這段（${rel}）</p><p><b>${txt}</b></p></div>
+    <div class="cm"><p class="st-d">跟妳們的對話對照</p><p>${mirror}</p></div>
+    <div class="cm"><p class="st-d">這週可以做的</p><p>${A.act}</p></div>
+    <div class="hook"><p><b>一張牌，只看得到一個切面。</b></p>
+      <p>他心裡真正怎麼想、你們是怎麼走到這裡的、接下來會往哪裡去，要用五張牌陣才看得完整：主牌、過去、現在、未來、解決方案，Chen 會一張一張解給妳。</p>
+      <p>想看完整的，往下按「一鍵複製」，傳給 Chen。</p></div>`;
+  if(SENDMSG){SENDMSG=SENDMSG.replace(/\n我抽到的牌是.*$/,"")+`\n我抽到的牌是「${name}」`;document.getElementById("sendText").textContent=SENDMSG}
+}
+function draw(){
+  if(drawn)return; drawn=true;
+  const r=new Uint32Array(1); crypto.getRandomValues(r);
+  DRAWN=CARDS[r[0]%CARDS.length];
+  tarot.classList.remove("back"); tarot.innerHTML=`<span class="k">${DRAWN[1]}</span><span class="n">${DRAWN[0]}</span>`;
+  showCard();
+}
+tarot.addEventListener("click",draw);
+tarot.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();draw()}});
+
+
+const ORIG=new WeakMap();
+function genderize(){
+  const male=document.getElementById("sex").value==="男生";
+  const w=document.createTreeWalker(document.querySelector(".wrap"),NodeFilter.SHOW_TEXT);
+  let n; while((n=w.nextNode())){
+    if(n.parentNode&&n.parentNode.closest&&n.parentNode.closest("select"))continue;
+    if(!ORIG.has(n))ORIG.set(n,n.nodeValue);
+    const base=ORIG.get(n), v=male?base.replace(/妳/g,"你").replace(/他/g,"她"):base;
+    if(n.nodeValue!==v)n.nodeValue=v;
+  }
+}
+document.getElementById("sex").addEventListener("change",genderize);
+new MutationObserver(genderize).observe(document.querySelector(".wrap"),{childList:true,subtree:true});
+
+genderize();
+</script>
+
+
+</body>
+</html>
